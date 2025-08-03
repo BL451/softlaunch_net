@@ -1,17 +1,4 @@
-function scrollToSection(sectionId) {
-  const section = document.getElementById(sectionId);
-  if (section) {
-    section.scrollIntoView({ behavior: 'smooth' });
-  }
-}
-
-// Make function globally available
-window.scrollToSection = scrollToSection;
-
-document.addEventListener('DOMContentLoaded', () => {
-  const app = document.getElementById('app');
-
-  const landingHTML = `
+window.scrollToSection=function(e){let t=document.getElementById(e);t&&t.scrollIntoView({behavior:"smooth"})},document.addEventListener("DOMContentLoaded",()=>{let e=document.getElementById("app");e.innerHTML=`
     <div class="landing-container">
       <header class="hero-section">
         <h1>soft_launch</h1>
@@ -26,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <section id="about" class="content-section">
           <h2>What We Believe</h2>
           <p>
-            Creativity and technology are not separate domains. We nurture hybrid practices where artists gain fluency with code, circuits, and computation — and technologists learn to make meaning, engage community, and take poetic risks.
+            Creativity and technology are not separate domains. We nurture hybrid practices where artists gain fluency with code, circuits, and computation \u{2014} and technologists learn to make meaning, engage community, and take poetic risks.
           </p>
           <p>
             Based in Toronto and supported by InterAccess, this intensive fills the gap between beginner workshops and academic programs with hands-on, project-based learning.
@@ -113,11 +100,5 @@ document.addEventListener('DOMContentLoaded', () => {
         </section>
       </div>
     </div>
-  `;
-
-  app.innerHTML = landingHTML;
-
-  const p5Container = document.createElement('div');
-  p5Container.id = 'p5-background';
-  document.body.insertBefore(p5Container, app);
-});
+  `;let t=document.createElement("div");t.id="p5-background",document.body.insertBefore(t,e)});
+//# sourceMappingURL=softlaunch_net.2174fcf3.js.map
