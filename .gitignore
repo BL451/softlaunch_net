@@ -134,3 +134,8 @@ dist
 .claude
 
 /dev_resources
+
+# Original image files
+src/assets/images/*/original/
+SUPABASE_SETUP.md
+src/assets/videos
