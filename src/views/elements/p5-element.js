@@ -2,11 +2,11 @@ const sketch = (p) => {
     let smoothX, smoothY;
     let STEP, SCALE;
     let v0, v1;
+    let canvas;
 
     p.setup = () => {
-        let canvas = p.createCanvas(p.windowWidth, p.windowHeight);
+        canvas = p.createCanvas(p.windowWidth, p.windowHeight);
         canvas.parent('p5-background');
-        p.background(0, 128, 223);
         STEP = (p.width > p.height) ? Math.ceil(p.width/32) : Math.ceil(p.height/20);
         SCALE = STEP*0.00006;
         p.noStroke();
@@ -21,14 +21,15 @@ const sketch = (p) => {
     }
 
     p.draw = () => {
+        if (p.frameCount == 1){
+            canvas.addClass('fade-in');
+        }
         if (p.width > 768){
             smoothX = p.constrain(smoothFollow(p.mouseX, smoothX, 0.2), 0, p.width);
             smoothY = p.constrain(smoothFollow(p.mouseY, smoothY, 0.2), 0, p.height);
             v0.x = smoothX;
             v0.y = smoothY;
         }
-        //p.clear();
-        //p.background(0, 128, 223);
         const t = 0.001 * p.millis();
 
         for (let i = 0; i < p.width + STEP; i += STEP) {

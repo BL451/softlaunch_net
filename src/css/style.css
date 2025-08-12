@@ -18,7 +18,7 @@
 
 body {
   font-family: 'ZxGamut', monospace;
-  background: #171717;
+  background: #80B0EF;
   color: #ffffff;
   overflow-x: hidden;
   min-height: 100vh;
@@ -43,6 +43,16 @@ body {
   width: 100%;
   height: 100%;
   z-index: 1;
+}
+
+#p5-background canvas {
+  display: block;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+}
+
+#p5-background canvas.fade-in {
+  opacity: 1;
 }
 
 #background-video {
