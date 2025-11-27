@@ -58,8 +58,8 @@ document.addEventListener('DOMContentLoaded', () => {
               <h3 class="workshop-subtitle">Creative Coding with the Browser</h3>
               <p class="workshop-description">Code your own net art using the web as both medium and canvas. Over two days, you'll learn the fundamentals of web development—HTML, CSS, and JavaScript—while exploring how artists use browsers, networks, and user interaction as creative tools. We'll cover hosting websites, updating them with GitHub, and making them responsive to the broader internet. You'll experiment with creative coding libraries and understand the historical context of net art from early new media pioneers to today's practitioners. Leave with several portfolio-ready projects and the skills to continue building your online practice.</p>
               <div class="workshop-details">
-                <p class="workshop-details"><strong>Two-Day Intensive</strong></p>
-                <p class="workshop-details"><strong>11am - 3pm, March 7-8, 2026</strong></p>
+                <p><strong>Two-Day Intensive</strong></p>
+                <p><strong>11am - 3pm, March 7-8, 2026</strong></p>
               </div>
               <a href="#" class="register-button disabled">REGISTRATION AVAILABLE SOON</a>
             </div>
