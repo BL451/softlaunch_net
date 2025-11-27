@@ -18,86 +18,98 @@ import benjaminPhoto from 'url:./assets/images/leads/benjamin.webp';
 import interaccessLogo from 'url:./assets/images/partners/interaccess.webp';
 import ukaiLogo from 'url:./assets/images/partners/ukaiprojects.webp';
 import culturalTechLogo from 'url:./assets/images/partners/culturaltechnolgieslab.webp';
+import cloudIcon from 'url:./assets/icons/cloud.svg';
+import introImage from 'url:./assets/images/abstract/image_intro_image.webp';
+import netArtImage from 'url:./assets/images/abstract/image_creativecode.webp';
+import touchDesignerImage from 'url:./assets/images/abstract/image_touchdesigner.webp';
+import syntheticWorldsImage from 'url:./assets/images/abstract/image_syntheticworlds.webp';
 
 document.addEventListener('DOMContentLoaded', () => {
   const app = document.getElementById('app');
 
   const landingHTML = `
+    <header class="site-header">
+      <div class="header-content">
+        <div class="header-left">
+          <img src="${cloudIcon}" alt="Cloud" class="cloud-icon">
+          <h1 class="header-title">soft_launch</h1>
+        </div>
+        <span class="header-tagline"><strong>Learning at the Intersection of Art and Technology</strong></span>
+      </div>
+    </header>
+
     <div class="landing-container">
-      <div class="title-section">
-        <h1>soft_launch</h1>
-      </div>
-
-      <div class="subtitle-section">
-        <h2>Creative Code Intensive for<br>Artists & Technologists</h2>
-      </div>
-
-      <section class="content-section applications-section">
-        <h2>Applications Coming Soon</h2>
-        <p>Sign up for our email list to be notified when applications open!</p>
-        <form class="signup-form">
-          <div class="form-row">
-            <input type="text" placeholder="Your Name" name="name" required>
-            <input type="email" placeholder="Email Address" name="email" required>
+      <section class="content-section intro-section">
+        <div class="intro-content">
+          <img src="${introImage}" alt="Workshop introduction" class="intro-image">
+          <div class="intro-text">
+            <p>Take the next step in your art practice by learning creative technology, or expand your experience with technology into the arts.<br><br>In Spring 2026, we're offering three weekend intensives in partnership with InterAccess.<br><br>Learn more below - registration available soon!</p>
           </div>
-          <button type="submit" class="signup-button">Join Email List</button>
-        </form>
+        </div>
       </section>
 
-      <div class="content-sections">
-        <section id="about" class="content-section">
-          <h2>What We Believe</h2>
-          <p>
-            Creativity and technology are not separate domains. We nurture hybrid practices where artists gain fluency with code, circuits, and computation — and technologists learn to make meaning, engage community, and take poetic risks.
-          </p>
-          <p>
-            Based in Toronto and supported by InterAccess, this intensive fills the gap between beginner workshops and academic programs with hands-on, project-based learning.
-          </p>
-        </section>
+      <section class="workshops-container">
+        <div class="workshops-grid">
 
-        <section class="content-section">
-          <h2>Program Overview</h2>
-          <div class="program-details">
-            <div class="detail-item">
-              <strong>Duration:</strong> 12 weeks
+          <article class="workshop-box">
+            <img src="${netArtImage}" alt="Net Art Workshop" class="workshop-image">
+            <div class="workshop-content">
+              <h2>Net Canvas</h2>
+              <h3 class="workshop-subtitle">Creative Coding with the Browser</h3>
+              <p class="workshop-description">Code your own net art using the web as both medium and canvas. Over two days, you'll learn the fundamentals of web development—HTML, CSS, and JavaScript—while exploring how artists use browsers, networks, and user interaction as creative tools. We'll cover hosting websites, updating them with GitHub, and making them responsive to the broader internet. You'll experiment with creative coding libraries and understand the historical context of net art from early new media pioneers to today's practitioners. Leave with several portfolio-ready projects and the skills to continue building your online practice.</p>
+              <div class="workshop-details">
+                <p class="workshop-details"><strong>Two-Day Intensive</strong></p>
+                <p class="workshop-details"><strong>11am - 3pm, March 7-8, 2026</strong></p>
+              </div>
+              <a href="#" class="register-button disabled">REGISTRATION AVAILABLE SOON</a>
             </div>
-            <div class="detail-item">
-              <strong>Format:</strong> In-person at InterAccess
+          </article>
+
+          <article class="workshop-box">
+            <img src="${touchDesignerImage}" alt="TouchDesigner Workshop" class="workshop-image">
+            <div class="workshop-content">
+              <h2>Reactive Space</h2>
+              <h3 class="workshop-subtitle">Interactive Installations with TouchDesigner</h3>
+              <p class="workshop-description">Learn to build interactive art installations using TouchDesigner, the industry-standard visual programming platform for real-time media. Over two days, you'll explore node-based workflows, create audio-reactive visuals, integrate computer vision for body tracking, and set up projection mapping systems. We'll cover practical installation techniques including networked video routing and project optimization, while contextualizing your work within contemporary media art practices. By the end of the weekend, you'll have hands-on experience building interactive pieces and understanding how to realize technically ambitious artistic visions.</p>
+              <div class="workshop-details">
+                <p><strong>Two-Day Intensive</strong></p>
+                <p><strong>11am - 3pm, April 11-12, 2026</strong></p>
+              </div>
+              <a href="#" class="register-button disabled">REGISTRATION AVAILABLE SOON</a>
             </div>
-            <div class="detail-item">
-              <strong>Commitment:</strong> 8-10 hours/week
+          </article>
+
+          <article class="workshop-box">
+            <img src="${syntheticWorldsImage}" alt="Synthetic Worlds Workshop" class="workshop-image">
+            <div class="workshop-content">
+              <h2>Synthetic Worlds</h2>
+              <h3 class="workshop-subtitle">Making Images & Video with Generative AI</h3>
+              <p class="workshop-description">Demystify generative AI by learning how image and video models actually work, then use them to create your own visual worlds. Over two days, you'll develop critical skills for identifying AI-generated content, explore ethical considerations in AI art-making, and master prompting techniques for both image and video generation. We'll examine the evolving landscape of AI art and contemporary practitioners while you build your own creative projects. Leave with both technical proficiency and the critical framework to engage meaningfully with these rapidly developing tools.</p>
+              <div class="workshop-details">
+                <p><strong>Two-Day Intensive</strong></p>
+                <p><strong>11am - 3pm, May 16-17, 2026</strong></p>
+              </div>
+              <a href="#" class="register-button disabled">REGISTRATION AVAILABLE SOON</a>
             </div>
-            <div class="detail-item">
-              <strong>Culmination:</strong> Public showcase
-            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <section class="content-section beyond-classroom-section">
+        <h2>Beyond the Classroom</h2>
+        <div class="beyond-classroom-grid">
+          <div class="beyond-classroom-text">
+            <p>In addition to skills learned during each weekend course, students will also:</p>
+            <ul>
+              <li>Receive a 1 month studio membership to InterAccess, including tool training and makerspace facilities</li>
+              <li>Have the opportunity to show their work in the Spring Showcase May 23rd & 24th, 2026</li>
+            </ul>
+            <p>Through these initiatives, we aim to give students further opportunities to build their new media arts practice.</p>
           </div>
-        </section>
 
-        <section class="content-section">
-          <h2>Curriculum Highlights</h2>
-          <div class="curriculum-grid">
-            <div class="curriculum-block">
-              <h3>Creative Coding</h3>
-              <p>p5.js, web development, generative art fundamentals</p>
-            </div>
-            <div class="curriculum-block">
-              <h3>AI & Machine Learning</h3>
-              <p>AI tools, LLMs, local image generation with ComfyUI</p>
-            </div>
-            <div class="curriculum-block">
-              <h3>Interactive Media</h3>
-              <p>TouchDesigner, Arduino, projection mapping, physical computing</p>
-            </div>
-            <div class="curriculum-block">
-              <h3>Project Development</h3>
-              <p>Fabrication, installation, and public showcase preparation</p>
-            </div>
-          </div>
-        </section>
-
-        <section class="content-section">
-          <h2>Gallery</h2>
-          <div class="carousel-container">
+          <div class="beyond-classroom-carousel">
+            <div class="carousel-container">
             <div class="carousel-track">
               <div class="carousel-item active">
                 <img src="${gallery1}" alt="Projecting the Future workshop" class="carousel-image">
@@ -121,89 +133,78 @@ document.addEventListener('DOMContentLoaded', () => {
               </div>
             </div>
             <div class="carousel-controls">
-              <button class="carousel-btn prev">&lt;</button>
               <div class="carousel-indicators">
                 <span class="indicator active" data-slide="0"></span>
                 <span class="indicator" data-slide="1"></span>
                 <span class="indicator" data-slide="2"></span>
                 <span class="indicator" data-slide="3"></span>
               </div>
-              <button class="carousel-btn next">&gt;</button>
             </div>
           </div>
-        </section>
+          </div>
+        </div>
+      </section>
 
-        <section class="content-section">
-          <h2>Facilities & Access</h2>
-          <p>
-            Through our partnership with InterAccess, participants receive 24/7 access to a fully-equipped new media studio including computers, 3D printers, laser cutters, woodshop, electronics bench, and installation space.
-          </p>
-        </section>
-
-        <section class="content-section">
-          <h2>Who Should Apply</h2>
-          <ul class="who-list">
-            <li>Artists wanting to integrate emerging technologies into their practice</li>
-            <li>Technologists exploring art and non-utilitarian creation</li>
-            <li>Anyone with basic creative tool experience ready to level up in a collaborative cohort</li>
-          </ul>
-          <p class="diversity-note">
-            We especially encourage BIPOC, disabled, and low-income creatives to apply. Sliding scale tuition available.
-          </p>
-        </section>
-
-        <section class="content-section">
-          <h2>Program Leads</h2>
-          <div class="team-grid">
+      <section class="content-section">
+        <h2>Facilitators</h2>
+        <div class="team-grid">
             <div class="team-member">
               <img src="${taraPhoto}" alt="Tara Rose Morris" class="team-photo">
-              <h3>Tara Rose Morris</h3>
-              <p>Artist and creative technologist using technology for live performances and immersive installations exploring art, code, and liminal ontologies of embodiment.</p>
+              <div class="team-info">
+                <h3><a href="https://www.taramoves.com/" target="_blank" rel="noopener noreferrer">Tara Rose Morris</a></h3>
+                <p>Artist and creative technologist using technology for live performances and immersive installations exploring art, code, and liminal ontologies of embodiment.</p>
+              </div>
             </div>
             <div class="team-member">
               <img src="${benjaminPhoto}" alt="Benjamin Lappalainen" class="team-photo">
-              <h3>Benjamin Lappalainen</h3>
-              <p>Creative technologist and educator creating interactive installations that blur digital and physical boundaries. Focuses on human-centered technology and open source tools for social impact.</p>
+              <div class="team-info">
+                <h3><a href="https://blap64.xyz/" target="_blank" rel="noopener noreferrer">Benjamin Lappalainen</a></h3>
+                <p>Creative technologist and educator creating interactive installations that blur digital and physical boundaries. Focuses on human-centered technology and open source tools for social impact.</p>
+              </div>
             </div>
           </div>
         </section>
 
-        <section class="content-section">
-          <h2>Partners</h2>
-          <div class="partners-grid">
-            <div class="partner-item">
-              <img src="${interaccessLogo}" alt="InterAccess" class="partner-logo">
-              <h3><a href="https://interaccess.org" target="_blank" rel="noopener noreferrer">InterAccess</a></h3>
-            </div>
-            <div class="partner-item">
-              <img src="${ukaiLogo}" alt="UKAI Projects" class="partner-logo">
-              <h3><a href="https://ukaiprojects.com" target="_blank" rel="noopener noreferrer">UKAI Projects</a></h3>
-            </div>
-            <div class="partner-item">
-              <img src="${culturalTechLogo}" alt="Cultural Technologies Lab" class="partner-logo">
-              <h3><a href="https://www.culturaltechnologieslab.org/" target="_blank" rel="noopener noreferrer">Cultural Technologies Lab</a></h3>
-            </div>
+      <section class="content-section">
+        <h2>Partners</h2>
+        <div class="partners-grid">
+          <div class="partner-item">
+            <img src="${interaccessLogo}" alt="InterAccess" class="partner-logo">
+            <h3><a href="https://interaccess.org" target="_blank" rel="noopener noreferrer">InterAccess</a></h3>
           </div>
-        </section>
+          <div class="partner-item">
+            <img src="${ukaiLogo}" alt="UKAI Projects" class="partner-logo">
+            <h3><a href="https://ukaiprojects.com" target="_blank" rel="noopener noreferrer">UKAI Projects</a></h3>
+          </div>
+          <div class="partner-item">
+            <img src="${culturalTechLogo}" alt="Cultural Technologies Lab" class="partner-logo">
+            <h3><a href="https://www.culturaltechnologieslab.org/" target="_blank" rel="noopener noreferrer">Cultural Technologies Lab</a></h3>
+          </div>
+        </div>
+      </section>
 
-        <section id="getinvolved" class="content-section contact-section">
-          <h2>Questions?</h2>
-          <p>Contact: <a href="mailto:hello@softlaunch.net">hello@softlaunch.net</a></p>
-        </section>
-      </div>
+      <section class="content-section contact-section">
+        <h2>Stay Connected</h2>
+        <form class="signup-form">
+          <div class="form-row">
+            <input type="text" placeholder="Your Name" name="name" required>
+            <input type="email" placeholder="Email Address" name="email" required>
+          </div>
+          <button type="submit" class="signup-button">Join Mailing List</button>
+        </form>
+        <p class="contact-info">Questions? Contact us at <a href="mailto:hello@softlaunch.net">hello@softlaunch.net</a></p>
+      </section>
     </div>
   `;
 
   app.innerHTML = landingHTML;
 
   // Initialize Supabase client
-  // Project URL and publishable token - this is fine to be in client-side code
   const SUPABASE_URL = 'https://kwgxwzywmcslyqvqtzue.supabase.co';
   const SUPABASE_ANON_KEY = 'sb_publishable_FWrAeJdYCQ7fCIeviahVYw_wOrhPjkB';
 
   let supabase = null;
 
-  // Only initialize if both URL and key are provided
   if (SUPABASE_URL !== 'YOUR_SUPABASE_URL_HERE' && SUPABASE_ANON_KEY !== 'YOUR_SUPABASE_ANON_KEY_HERE') {
     supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
   }
@@ -218,20 +219,17 @@ document.addEventListener('DOMContentLoaded', () => {
       const name = formData.get('name');
       const email = formData.get('email');
 
-      // Basic validation
       if (!name || !email) {
         alert('Please fill in both name and email fields.');
         return;
       }
 
-      // Email validation
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(email)) {
         alert('Please enter a valid email address.');
         return;
       }
 
-      // Show loading state
       const submitButton = this.querySelector('.signup-button');
       const originalText = submitButton.textContent;
       submitButton.textContent = 'Adding to list...';
@@ -239,7 +237,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
       try {
         if (supabase) {
-          // Insert data into Supabase
           const { data, error } = await supabase
             .from('email_signups')
             .insert([
@@ -250,26 +247,24 @@ document.addEventListener('DOMContentLoaded', () => {
             ]);
 
           if (error) {
-            if (error.code === '23505') { // Duplicate email error
+            if (error.code === '23505') {
               alert('This email is already on our list!');
             } else {
               console.error('Supabase error:', error);
               alert('There was an error adding you to our list. Please try again.');
             }
           } else {
-            alert(`Thank you ${name}! We'll notify you at ${email} when applications open.`);
+            alert(`Thank you ${name}! We'll keep you updated at ${email}.`);
             this.reset();
           }
         } else {
-          // Fallback if Supabase not configured
-          alert(`Thank you ${name}! We'll notify you at ${email} when applications open. (Note: Supabase not configured yet)`);
+          alert(`Thank you ${name}! We'll keep you updated at ${email}.`);
           this.reset();
         }
       } catch (error) {
         console.error('Error:', error);
         alert('There was an error adding you to our list. Please try again.');
       } finally {
-        // Reset button state
         submitButton.textContent = originalText;
         submitButton.disabled = false;
       }
@@ -282,8 +277,6 @@ document.addEventListener('DOMContentLoaded', () => {
   let autoAdvanceInterval;
   const slides = document.querySelectorAll('.carousel-item');
   const indicators = document.querySelectorAll('.indicator');
-  const prevBtn = document.querySelector('.carousel-btn.prev');
-  const nextBtn = document.querySelector('.carousel-btn.next');
 
   function showSlide(index) {
     if (isTransitioning) return; // Prevent multiple rapid clicks
@@ -331,22 +324,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Event listeners for carousel
-  if (nextBtn) {
-    nextBtn.addEventListener('click', () => {
-      stopAutoAdvance();
-      nextSlide();
-      startAutoAdvance(); // Restart auto-advance after manual interaction
-    });
-  }
-
-  if (prevBtn) {
-    prevBtn.addEventListener('click', () => {
-      stopAutoAdvance();
-      prevSlide();
-      startAutoAdvance(); // Restart auto-advance after manual interaction
-    });
-  }
-
   indicators.forEach((indicator, index) => {
     indicator.addEventListener('click', () => {
       if (isTransitioning) return;
@@ -361,8 +338,11 @@ document.addEventListener('DOMContentLoaded', () => {
     startAutoAdvance();
   }
 
-  // Create p5 background container
-  const p5Container = document.createElement('div');
-  p5Container.id = 'p5-background';
-  document.body.insertBefore(p5Container, app);
+  // Disable register buttons
+  const disabledButtons = document.querySelectorAll('.register-button.disabled');
+  disabledButtons.forEach(button => {
+    button.addEventListener('click', (e) => {
+      e.preventDefault();
+    });
+  });
 });

@@ -1,69 +1,140 @@
 const sketch = (p) => {
-    let smoothX, smoothY;
-    let STEP, SCALE;
-    let v0, v1;
+    let fbo0, fbo1;
+    let factor = 32;
     let canvas;
+    let n_spheres = 23;
+    let sphere_rad = 5;
+    let isMobile = false;
 
     p.setup = () => {
-        canvas = p.createCanvas(p.windowWidth, p.windowHeight);
+        p.pixelDensity(1);
+        p.frameRate(16);
+        // Disable p5's smoothing
+        p.noSmooth();
+
+        // Use window.innerWidth/Height to get full viewport including iOS curved corners
+        const w = window.innerWidth;
+        const h = window.innerHeight;
+        canvas = p.createCanvas(w, h, p.WEBGL);
         canvas.parent('p5-background');
-        STEP = (p.width > p.height) ? Math.ceil(p.width/32) : Math.ceil(p.height/20);
-        SCALE = STEP*0.00006;
-        p.noStroke();
+
+        p.colorMode(p.HSB);
+        p.imageMode(p.CENTER);
         p.rectMode(p.CENTER);
-        smoothX = p.width / 2;
-        smoothY = p.height / 2;
-        p.mouseX = smoothX;
-        p.mouseY = smoothY;
-        v0 = p.createVector(smoothX, smoothY);
-        v1 = p.createVector(0, 0);
-        p.frameRate(20);
+        p.ellipseMode(p.CENTER);
+        p.strokeWeight(0.5);
+        p.background(200, 60, 80);
+
+        // Options for creating our framebuffer
+        const options = {
+            width: p.width / factor,
+            height: p.height / factor,
+            textureFiltering: p.NEAREST,
+            format: p.FLOAT
+        }
+
+        // Use proper mobile detection - iOS cannot render to FLOAT textures
+        isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+        if (isMobile) {
+            n_spheres = 8;
+            sphere_rad = 3;
+        }
+
+        // Make the framebuffers
+        try {
+            fbo0 = p.createFramebuffer(options);
+            fbo1 = p.createFramebuffer(options);
+            console.log('Framebuffers created:', fbo0, fbo1);
+        } catch (error) {
+            console.error('Error creating framebuffers:', error);
+        }
     }
 
     p.draw = () => {
-        if (p.frameCount == 1){
+        if (p.frameCount == 1) {
             canvas.addClass('fade-in');
         }
-        if (p.width > 768){
-            smoothX = p.constrain(smoothFollow(p.mouseX, smoothX, 0.2), 0, p.width);
-            smoothY = p.constrain(smoothFollow(p.mouseY, smoothY, 0.2), 0, p.height);
-            v0.x = smoothX;
-            v0.y = smoothY;
-        }
-        const t = 0.001 * p.millis();
 
-        for (let i = 0; i < p.width + STEP; i += STEP) {
-            for (let j = 0; j < p.height + STEP; j += STEP) {
-                let v = p.noise(SCALE * i, SCALE * j + 0.2 * t, t*SCALE);
-                p.fill(255 * v, 88 + 167 * v, 200 + 55 * v);
+        const t = p.millis() * 0.00005;
+        [fbo0, fbo1] = [fbo1, fbo0];
 
-                if (p.width > 768) {
-                    v1.x = i;
-                    v1.y = j;
-                    let size = p.map(p5.Vector.dist(v0, v1), 0, 0.1 * p.width, STEP, 0, true);
-                    p.square(i + 0.5*STEP, j, STEP + size);
-                } else {
-                    p.square(i + 0.5*STEP, j, STEP);
-                }
-            }
+        fbo0.begin();
+        p.noFill();
+        for (let i = 0; i < n_spheres; i++) {
+            p.stroke(200, 1, 93 + 3*Math.cos(3*t + i/23));
+            p.push();
+            p.translate(
+                1.2 * fbo0.width * (p.noise(100 * i, t) - 0.5),
+                0.8 * fbo0.height * (p.noise(1.333 * t, 100 * i) - 0.5),
+                6 * (p.noise(0, 0.333 * t, 100 * i) - 0.5)
+            );
+            p.sphere(sphere_rad);
+            p.pop();
         }
+        fbo0.end();
+
+        fbo1.begin();
+        p.clear();
+        p.push();
+        p.translate(0, 0.5);
+        p.image(fbo0, 0, 0);
+        p.pop();
+        p.fill(200, 60, 80, 0.1);
+        p.noStroke();
+        p.rect(0, 0, fbo1.width, fbo1.height);
+        p.fill(200, 60, 80, 0.3);
+        p.rect(0, 0.45 * fbo1.height, fbo1.width, 0.05 * fbo1.height);
+        p.rect(0, 0.475 * fbo1.height, fbo1.width, 0.05 * fbo1.height);
+        fbo1.end();
+
+        // Render an image of the framebuffer
+        p.image(fbo1, 0, 0, p.width, p.height);
     }
 
     p.windowResized = () => {
-        p.resizeCanvas(p.windowWidth, p.windowHeight);
-        smoothX = p.width / 2;
-        smoothY = p.height / 2;
-        STEP = (p.width > p.height) ? Math.ceil(p.width/32) : Math.ceil(p.height/20);
-        SCALE = STEP*0.00006;
-    }
-
-
-    function smoothFollow(raw, current, smoothing) {
-        return current + smoothing * (raw - current);
+        if (isMobile){
+            return;
+        }
+        const w = window.innerWidth;
+        const h = window.innerHeight;
+        p.resizeCanvas(w, h);
+        const options = {
+            width: p.width / factor,
+            height: p.height / factor,
+            textureFiltering: p.NEAREST,
+            format: p.FLOAT,
+        }
+        p.colorMode(p.HSB);
+        p.imageMode(p.CENTER);
+        p.rectMode(p.CENTER);
+        p.ellipseMode(p.CENTER);
+        fbo0 = p.createFramebuffer(options);
+        fbo1 = p.createFramebuffer(options);
     }
 };
 
 let p5Instance = new p5(sketch);
+
+// Debug: Watch for canvas being moved
+const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+        if (mutation.type === 'childList') {
+            mutation.removedNodes.forEach((node) => {
+                if (node.id === 'defaultCanvas0') {
+                    console.error('Canvas was removed from:', mutation.target);
+                }
+            });
+            mutation.addedNodes.forEach((node) => {
+                if (node.id === 'defaultCanvas0') {
+                    console.warn('Canvas was added to:', mutation.target);
+                }
+            });
+        }
+    });
+});
+
+// Observe the entire body for canvas movements
+observer.observe(document.body, { childList: true, subtree: true });
 
 // Cleanup on page unload
 window.addEventListener('beforeunload', () => {
