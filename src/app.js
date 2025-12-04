@@ -20,9 +20,9 @@ import ukaiLogo from 'url:./assets/images/partners/ukaiprojects.webp';
 import culturalTechLogo from 'url:./assets/images/partners/culturaltechnolgieslab.webp';
 import cloudIcon from 'url:./assets/icons/cloud.svg';
 import introImage from 'url:./assets/images/abstract/image_intro_image.webp';
-import netArtImage from 'url:./assets/images/abstract/image_creativecode.webp';
-import touchDesignerImage from 'url:./assets/images/abstract/image_touchdesigner.webp';
-import syntheticWorldsImage from 'url:./assets/images/abstract/image_syntheticworlds.webp';
+import netCanvasImage from 'url:./assets/images/abstract/netcanvas.webp';
+import reactiveSpaceImage from 'url:./assets/images/abstract/reactivespace.webp';
+import syntheticWorldsImage from 'url:./assets/images/abstract/image_touchdesigner.webp';
 
 document.addEventListener('DOMContentLoaded', () => {
   const app = document.getElementById('app');
@@ -52,9 +52,9 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="workshops-grid">
 
           <article class="workshop-box">
-            <img src="${netArtImage}" alt="Net Art Workshop" class="workshop-image">
+            <img src="${netCanvasImage}" alt="Internet Canvas Workshop" class="workshop-image">
             <div class="workshop-content">
-              <h2>Net Canvas</h2>
+              <h2>Internet Canvas</h2>
               <h3 class="workshop-subtitle">Creative Coding with the Browser</h3>
               <p class="workshop-description">Code your own net art using the web as both medium and canvas. Over two days, you'll learn the fundamentals of web development—HTML, CSS, and JavaScript—while exploring how artists use browsers, networks, and user interaction as creative tools. We'll cover hosting websites, updating them with GitHub, and making them responsive to the broader internet. You'll experiment with creative coding libraries and understand the historical context of net art from early new media pioneers to today's practitioners. Leave with several portfolio-ready projects and the skills to continue building your online practice.</p>
               <div class="workshop-details">
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
           </article>
 
           <article class="workshop-box">
-            <img src="${touchDesignerImage}" alt="TouchDesigner Workshop" class="workshop-image">
+            <img src="${reactiveSpaceImage}" alt="Reactive Space Workshop" class="workshop-image">
             <div class="workshop-content">
               <h2>Reactive Space</h2>
               <h3 class="workshop-subtitle">Interactive Installations with TouchDesigner</h3>
@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
               <li>Receive a 1 month studio membership to InterAccess, including tool training and makerspace facilities</li>
               <li>Have the opportunity to show their work in the Spring Showcase May 23rd & 24th, 2026</li>
             </ul>
-            <p>Through these initiatives, we aim to give students further opportunities to build their new media arts practice.</p>
+            <p>Through these initiatives, we aim to give students further opportunities to build their new media arts practice and engage with Toronto's creative communities.</p>
           </div>
 
           <div class="beyond-classroom-carousel">
