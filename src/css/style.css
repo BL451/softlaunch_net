@@ -1036,6 +1036,10 @@ p:last-child {
     padding-top: 0;
   }
 
+  .beyond-classroom-text li {
+    font-size: 1rem;
+  }
+
   .team-grid {
     grid-template-columns: 1fr;
   }
