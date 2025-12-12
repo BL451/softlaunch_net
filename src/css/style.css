@@ -100,7 +100,7 @@ body {
   left: 0;
   right: 0;
   width: 100%;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.8);
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(4px);
   padding: 1.5rem 0;
@@ -209,7 +209,7 @@ body {
 }
 
 .workshop-box {
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.8);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 8px;
   padding: 0;
@@ -254,6 +254,7 @@ body {
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
   color: #0d1b33;
+  text-align: left;
 }
 
 .workshop-subtitle {
@@ -268,6 +269,16 @@ body {
   margin-bottom: 1rem;
   font-size: 1rem;
   line-height: 1.6;
+}
+
+.workshop-content ul {
+  padding-left: 1.5rem;
+  list-style-position: outside;
+  margin-bottom: 1rem;
+}
+
+.workshop-content p + ul {
+  margin-top: 0.5rem;
 }
 
 .workshop-topics {
@@ -311,7 +322,7 @@ body {
 .register-button {
   font-family: 'BPDots', monospace;
   font-weight: 900;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.8);
   border: 2px solid rgba(30, 74, 107, 0.5);
   border-radius: 8px;
   padding: 1rem;
@@ -360,6 +371,10 @@ body {
   list-style-position: outside;
 }
 
+.beyond-classroom-text li {
+  font-size: 1.2rem;
+}
+
 .beyond-classroom-carousel .carousel-container {
   margin-top: 0;
 }
@@ -383,7 +398,7 @@ body {
 }
 
 .content-section {
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.8);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 8px;
   padding: 2rem;
@@ -409,7 +424,7 @@ body {
 }
 
 .detail-item {
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.8);
   padding: 1rem;
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 8px;
@@ -429,7 +444,7 @@ body {
 }
 
 .curriculum-block {
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.8);
   padding: 1.5rem;
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 8px;
@@ -485,7 +500,7 @@ body {
 }
 
 .team-member {
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.8);
   padding: 1.5rem;
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 8px;
@@ -719,8 +734,8 @@ body {
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(82, 163, 204, 0.5);
+  border: 1px solid rgba(82, 163, 204, 0.7);
   cursor: pointer;
   transition: all 0.3s ease;
 }
@@ -732,7 +747,7 @@ body {
 
 .contact-section {
   text-align: center;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.8);
   border: 1px solid rgba(255, 255, 255, 0.2) !important;
   border-radius: 8px;
   padding: 2rem;
@@ -771,7 +786,7 @@ body {
 }
 
 .signup-form input {
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.8);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 8px;
   padding: 0.75rem;
@@ -792,7 +807,7 @@ body {
 .signup-button {
   font-family: 'BPDots', monospace;
   font-weight: 900;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.8);
   border: 2px solid rgba(30, 74, 107, 0.5);
   border-radius: 8px;
   padding: 1rem;

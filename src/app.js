@@ -13,6 +13,10 @@ import gallery1 from 'url:./assets/images/gallery/01-projecting-future-workshop.
 import gallery2 from 'url:./assets/images/gallery/04-biosonification-moca.webp';
 import gallery3 from 'url:./assets/images/gallery/05-open-studio.webp';
 import gallery4 from 'url:./assets/images/gallery/dsc00497.webp';
+import taraArt2 from 'url:./assets/images/gallery/Tara_Art_2.webp';
+import sketchingFlock from 'url:./assets/images/gallery/Sketching Flock.webp';
+import taraArt1 from 'url:./assets/images/gallery/Tara_Art_1.webp';
+import lw13 from 'url:./assets/images/gallery/lw13_1-15.webp';
 import taraPhoto from 'url:./assets/images/leads/tara.webp';
 import benjaminPhoto from 'url:./assets/images/leads/benjamin.webp';
 import interaccessLogo from 'url:./assets/images/partners/interaccess.webp';
@@ -56,9 +60,16 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="workshop-content">
               <h2>Internet Canvas</h2>
               <h3 class="workshop-subtitle">Creative Coding with the Browser</h3>
-              <p class="workshop-description">Code your own net art using the web as both medium and canvas. Over two days, you'll learn the fundamentals of web development—HTML, CSS, and JavaScript—while exploring how artists use browsers, networks, and user interaction as creative tools. We'll cover hosting websites, updating them with GitHub, and making them responsive to the broader internet. You'll experiment with creative coding libraries and understand the historical context of net art from early new media pioneers to today's practitioners. Leave with several portfolio-ready projects and the skills to continue building your online practice.</p>
+              <p class="workshop-description">Code your own net art using the web as both medium and canvas.</p>
+              <p><strong>LEARN:</strong></p>
+              <ul>
+                <li>Fundamentals of <b>web development</b>: HTML, CSS and JavaScript</li>
+                <li>How to <b>host websites</b> and update them with GitHub</li>
+                <li>Experiment with <b>creative coding libraries</b> like MediaPipe, p5, Three.js</li>
+                <li>The <b>historical context</b> of net art</li>
+              </ul>
+              <p class="workshop-description">Create an interactive, browser-based artwork hosted on the internet.</p>
               <div class="workshop-details">
-                <p><strong>Two-Day Intensive</strong></p>
                 <p><strong>11am - 3pm, March 7-8, 2026</strong></p>
               </div>
               <a href="#" class="register-button disabled">REGISTRATION AVAILABLE SOON</a>
@@ -70,10 +81,17 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="workshop-content">
               <h2>Reactive Space</h2>
               <h3 class="workshop-subtitle">Interactive Installations with TouchDesigner</h3>
-              <p class="workshop-description">Learn to build interactive art installations using TouchDesigner, the industry-standard visual programming platform for real-time media. Over two days, you'll explore node-based workflows, create audio-reactive visuals, integrate computer vision for body tracking, and set up projection mapping systems. We'll cover practical installation techniques including networked video routing and project optimization, while contextualizing your work within contemporary media art practices. By the end of the weekend, you'll have hands-on experience building interactive pieces and understanding how to realize technically ambitious artistic visions.</p>
+              <p class="workshop-description">Learn to build interactive art installations using TouchDesigner, the industry-standard visual programming platform for real-time media.</p>
+              <p><strong>LEARN:</strong></p>
+              <ul>
+                <li>Node-based workflows for creating <b>audio-reactive visuals</b></li>
+                <li>Integration of computer vision for <b>body tracking</b></li>
+                <li>Setting up <b>projection mapping</b> systems</li>
+                <li>Contemporary <b>new media art contexts</b></li>
+              </ul>
+              <p class="workshop-description">Create an interactive audio visual installation, installed and documented in the InterAccess space.</p>
               <div class="workshop-details">
-                <p><strong>Two-Day Intensive</strong></p>
-                <p><strong>11am - 3pm, April 11-12, 2026</strong></p>
+                <p><strong>11am - 3pm, April 18-19, 2026</strong></p>
               </div>
               <a href="#" class="register-button disabled">REGISTRATION AVAILABLE SOON</a>
             </div>
@@ -84,9 +102,16 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="workshop-content">
               <h2>Synthetic Worlds</h2>
               <h3 class="workshop-subtitle">Making Images & Video with Generative AI</h3>
-              <p class="workshop-description">Demystify generative AI by learning how image and video models actually work, then use them to create your own visual worlds. Over two days, you'll develop critical skills for identifying AI-generated content, explore ethical considerations in AI art-making, and master prompting techniques for both image and video generation. We'll examine the evolving landscape of AI art and contemporary practitioners while you build your own creative projects. Leave with both technical proficiency and the critical framework to engage meaningfully with these rapidly developing tools.</p>
+              <p class="workshop-description">Demystify generative AI by learning how image and video models actually work, then use them to create your own visual worlds.</p>
+              <p><strong>LEARN:</strong></p>
+              <ul>
+                <li>Technical workflows for both <b>AI image and video generation</b></li>
+                <li><b>Prompting techniques</b> for worldbuilding</li>
+                <li>Critical skills for identifying <b>AI-generated content</b></li>
+                <li><b>Ethical considerations</b> in AI art-making</li>
+              </ul>
+              <p class="workshop-description">Create your own narrative worldbuilding collection of media.</p>
               <div class="workshop-details">
-                <p><strong>Two-Day Intensive</strong></p>
                 <p><strong>11am - 3pm, May 16-17, 2026</strong></p>
               </div>
               <a href="#" class="register-button disabled">REGISTRATION AVAILABLE SOON</a>
@@ -102,8 +127,8 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="beyond-classroom-text">
             <p>In addition to skills learned during each weekend course, students will also:</p>
             <ul>
-              <li>Receive a 1 month studio membership to InterAccess, including tool training and makerspace facilities</li>
-              <li>Have the opportunity to show their work in the Spring Showcase May 23rd & 24th, 2026</li>
+              <li>Receive a <b>complimentary 1 month studio membership to InterAccess</b>, including tool training and makerspace facilities</li>
+              <li>Showcase their work in the <b>Spring Showcase May 23rd & 24th, 2026</b></li>
             </ul>
             <p>Through these initiatives, we aim to give students further opportunities to build their new media arts practice and engage with Toronto's creative communities.</p>
           </div>
@@ -112,14 +137,34 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="carousel-container">
             <div class="carousel-track">
               <div class="carousel-item active">
+                <img src="${taraArt2}" alt="Tara Art 2" class="carousel-image">
+                <p class="carousel-caption">Tara's FLOWERS LED wall installation at PHNTM Labs (2023)</p>
+                <p class="carousel-credit">Photo credit: Tara Rose Morris</p>
+              </div>
+              <div class="carousel-item">
+                <img src="${sketchingFlock}" alt="Sketching Flock" class="carousel-image">
+                <p class="carousel-caption">Benjamin's SKETCHING FLOCK interactive installation at InterAccess OpenHDMI (2024)</p>
+                <p class="carousel-credit">Photo credit: Benjamin Lappalainen</p>
+              </div>
+              <div class="carousel-item">
+                <img src="${taraArt1}" alt="Tara Art 1" class="carousel-image">
+                <p class="carousel-caption">Tara's MITHAI performance at InterAccess P2P (2024)</p>
+                <p class="carousel-credit">Photo credit: Tara Rose Morris</p>
+              </div>
+              <div class="carousel-item">
+                <img src="${lw13}" alt="lw13" class="carousel-image">
+                <p class="carousel-caption">Benjamin's live audio-reactive visuals at Long Winter 13.1 (2024)</p>
+                <p class="carousel-credit">Photo credit: Benjamin Lappalainen</p>
+              </div>
+              <div class="carousel-item">
                 <img src="${gallery1}" alt="Projecting the Future workshop" class="carousel-image">
-                <p class="carousel-caption">Projecting the Future workshop - exploring digital art and projection mapping</p>
-                <p class="carousel-credit">Photo credit: Simon Rojas (2023)</p>
+                <p class="carousel-caption">Projecting the Future workshop - exploring digital art and projection mapping (2023)</p>
+                <p class="carousel-credit">Photo credit: Simon Rojas</p>
               </div>
               <div class="carousel-item">
                 <img src="${gallery2}" alt="BioSonification at MOCA" class="carousel-image">
-                <p class="carousel-caption">BioSonification installation at MOCA - data-driven sound art</p>
-                <p class="carousel-credit">Photo credit: Tosca Terán (2019)</p>
+                <p class="carousel-caption">BioSonification installation at MOCA - data-driven sound art (2019)</p>
+                <p class="carousel-credit">Photo credit: Tosca Terán</p>
               </div>
               <div class="carousel-item">
                 <img src="${gallery3}" alt="Open Studio event" class="carousel-image">
@@ -128,8 +173,8 @@ document.addEventListener('DOMContentLoaded', () => {
               </div>
               <div class="carousel-item">
                 <img src="${gallery4}" alt="Interactive installation" class="carousel-image">
-                <p class="carousel-caption">Benjamin teaching at the PROGRAM09: MEDIAPIPE event at New Stadium.</p>
-                <p class="carousel-credit">Photo credit: <a href="https://www.youtube.com/@PROGRAMislive" target="_blank" rel="noopener noreferrer">PROGRAM</a> media team</p>
+                <p class="carousel-caption">Benjamin teaching at the PROGRAM09: MEDIAPIPE event at New Stadium (2025)</p>
+                <p class="carousel-credit">Photo credit: PROGRAM media team</p>
               </div>
             </div>
             <div class="carousel-controls">
@@ -138,6 +183,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 <span class="indicator" data-slide="1"></span>
                 <span class="indicator" data-slide="2"></span>
                 <span class="indicator" data-slide="3"></span>
+                <span class="indicator" data-slide="4"></span>
+                <span class="indicator" data-slide="5"></span>
+                <span class="indicator" data-slide="6"></span>
+                <span class="indicator" data-slide="7"></span>
               </div>
             </div>
           </div>
