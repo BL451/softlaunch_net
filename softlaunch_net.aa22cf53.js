@@ -14,7 +14,7 @@ function e(e){return e&&e.__esModule?e.default:e}var a={};a=import.meta.resolve(
         <div class="intro-content">
           <img src="${e(v)}" alt="Workshop introduction" class="intro-image">
           <div class="intro-text">
-            <p>Take the next step in your art practice by learning creative technology, or expand your experience with technology into the arts.<br><br>In Spring 2026, we're offering three weekend intensives in partnership with InterAccess.<br><br>Learn more below - registration available soon!</p>
+            <p>Take the next step in your art practice by learning creative technology, or expand your experience with technology into the arts.<br><br>In Spring 2026, we're offering three weekend intensives in partnership with InterAccess.<br><br>Learn more and register below!</p>
           </div>
         </div>
       </section>
@@ -39,7 +39,7 @@ function e(e){return e&&e.__esModule?e.default:e}var a={};a=import.meta.resolve(
               <div class="workshop-details">
                 <p><strong>11am - 3pm, March 7-8, 2026</strong></p>
               </div>
-              <a href="#" class="register-button disabled">REGISTRATION AVAILABLE SOON</a>
+              <a href="https://www.tickettailor.com/events/interaccess/1993936" class="register-button" target="_blank" rel="noopener noreferrer">REGISTER</a>
             </div>
           </article>
 
@@ -60,7 +60,7 @@ function e(e){return e&&e.__esModule?e.default:e}var a={};a=import.meta.resolve(
               <div class="workshop-details">
                 <p><strong>11am - 3pm, April 18-19, 2026</strong></p>
               </div>
-              <a href="#" class="register-button disabled">REGISTRATION AVAILABLE SOON</a>
+              <a href="https://www.tickettailor.com/events/interaccess/1993943" class="register-button" target="_blank" rel="noopener noreferrer">REGISTER</a>
             </div>
           </article>
 
@@ -81,7 +81,7 @@ function e(e){return e&&e.__esModule?e.default:e}var a={};a=import.meta.resolve(
               <div class="workshop-details">
                 <p><strong>11am - 3pm, May 16-17, 2026</strong></p>
               </div>
-              <a href="#" class="register-button disabled">REGISTRATION AVAILABLE SOON</a>
+              <a href="https://www.tickettailor.com/events/interaccess/1993944" class="register-button" target="_blank" rel="noopener noreferrer">REGISTER</a>
             </div>
           </article>
 
@@ -211,5 +211,5 @@ function e(e){return e&&e.__esModule?e.default:e}var a={};a=import.meta.resolve(
         <p class="contact-info">Questions? Contact us at <a href="mailto:hello@softlaunch.net">hello@softlaunch.net</a></p>
       </section>
     </div>
-  `;let k=null;k=window.supabase.createClient("https://kwgxwzywmcslyqvqtzue.supabase.co","sb_publishable_FWrAeJdYCQ7fCIeviahVYw_wOrhPjkB");let y=document.querySelector(".signup-form");y&&y.addEventListener("submit",async function(e){e.preventDefault();let a=new FormData(this),t=a.get("name"),s=a.get("email");if(!t||!s)return void alert("Please fill in both name and email fields.");if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s))return void alert("Please enter a valid email address.");let i=this.querySelector(".signup-button"),r=i.textContent;i.textContent="Adding to list...",i.disabled=!0;try{if(k){let{data:e,error:a}=await k.from("email_signups").insert([{name:t.trim(),email:s.trim().toLowerCase()}]);a?"23505"===a.code?alert("This email is already on our list!"):(console.error("Supabase error:",a),alert("There was an error adding you to our list. Please try again.")):(alert(`Thank you ${t}! We'll keep you updated at ${s}.`),this.reset())}else alert(`Thank you ${t}! We'll keep you updated at ${s}.`),this.reset()}catch(e){console.error("Error:",e),alert("There was an error adding you to our list. Please try again.")}finally{i.textContent=r,i.disabled=!1}});let A=0,I=!1,T=document.querySelectorAll(".carousel-item"),L=document.querySelectorAll(".indicator");function S(e){I||(I=!0,T.forEach(e=>e.classList.remove("active")),L.forEach(e=>e.classList.remove("active")),T[e]&&(T[e].classList.add("active"),L[e].classList.add("active")),A=e,setTimeout(()=>{I=!1},500))}function C(){I||S((A+1)%T.length)}function E(){f=setInterval(C,5e3)}L.forEach((e,a)=>{e.addEventListener("click",()=>{I||(f&&clearInterval(f),S(a),E())})}),T.length>0&&E(),document.querySelectorAll(".register-button.disabled").forEach(e=>{e.addEventListener("click",e=>{e.preventDefault()})})});
-//# sourceMappingURL=softlaunch_net.9c723c81.js.map
+  `;let k=null;k=window.supabase.createClient("https://kwgxwzywmcslyqvqtzue.supabase.co","sb_publishable_FWrAeJdYCQ7fCIeviahVYw_wOrhPjkB");let y=document.querySelector(".signup-form");y&&y.addEventListener("submit",async function(e){e.preventDefault();let a=new FormData(this),t=a.get("name"),s=a.get("email");if(!t||!s)return void alert("Please fill in both name and email fields.");if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s))return void alert("Please enter a valid email address.");let i=this.querySelector(".signup-button"),r=i.textContent;i.textContent="Adding to list...",i.disabled=!0;try{if(k){let{data:e,error:a}=await k.from("email_signups").insert([{name:t.trim(),email:s.trim().toLowerCase()}]);a?"23505"===a.code?alert("This email is already on our list!"):(console.error("Supabase error:",a),alert("There was an error adding you to our list. Please try again.")):(alert(`Thank you ${t}! We'll keep you updated at ${s}.`),this.reset())}else alert(`Thank you ${t}! We'll keep you updated at ${s}.`),this.reset()}catch(e){console.error("Error:",e),alert("There was an error adding you to our list. Please try again.")}finally{i.textContent=r,i.disabled=!1}});let I=0,A=!1,T=document.querySelectorAll(".carousel-item"),C=document.querySelectorAll(".indicator");function S(e){A||(A=!0,T.forEach(e=>e.classList.remove("active")),C.forEach(e=>e.classList.remove("active")),T[e]&&(T[e].classList.add("active"),C[e].classList.add("active")),I=e,setTimeout(()=>{A=!1},500))}function L(){A||S((I+1)%T.length)}function P(){f=setInterval(L,5e3)}C.forEach((e,a)=>{e.addEventListener("click",()=>{A||(f&&clearInterval(f),S(a),P())})}),T.length>0&&P()});
+//# sourceMappingURL=softlaunch_net.aa22cf53.js.map
