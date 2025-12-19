@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="intro-content">
           <img src="${introImage}" alt="Workshop introduction" class="intro-image">
           <div class="intro-text">
-            <p>Take the next step in your art practice by learning creative technology, or expand your experience with technology into the arts.<br><br>In Spring 2026, we're offering three weekend intensives in partnership with InterAccess.<br><br>Learn more below - registration available soon!</p>
+            <p>Take the next step in your art practice by learning creative technology, or expand your experience with technology into the arts.<br><br>In Spring 2026, we're offering three weekend intensives in partnership with InterAccess.<br><br>Learn more and register below!</p>
           </div>
         </div>
       </section>
@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
               <div class="workshop-details">
                 <p><strong>11am - 3pm, March 7-8, 2026</strong></p>
               </div>
-              <a href="#" class="register-button disabled">REGISTRATION AVAILABLE SOON</a>
+              <a href="https://www.tickettailor.com/events/interaccess/1993936" class="register-button" target="_blank" rel="noopener noreferrer">REGISTER</a>
             </div>
           </article>
 
@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
               <div class="workshop-details">
                 <p><strong>11am - 3pm, April 18-19, 2026</strong></p>
               </div>
-              <a href="#" class="register-button disabled">REGISTRATION AVAILABLE SOON</a>
+              <a href="https://www.tickettailor.com/events/interaccess/1993943" class="register-button" target="_blank" rel="noopener noreferrer">REGISTER</a>
             </div>
           </article>
 
@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
               <div class="workshop-details">
                 <p><strong>11am - 3pm, May 16-17, 2026</strong></p>
               </div>
-              <a href="#" class="register-button disabled">REGISTRATION AVAILABLE SOON</a>
+              <a href="https://www.tickettailor.com/events/interaccess/1993944" class="register-button" target="_blank" rel="noopener noreferrer">REGISTER</a>
             </div>
           </article>
 
@@ -386,12 +386,4 @@ document.addEventListener('DOMContentLoaded', () => {
   if (slides.length > 0) {
     startAutoAdvance();
   }
-
-  // Disable register buttons
-  const disabledButtons = document.querySelectorAll('.register-button.disabled');
-  disabledButtons.forEach(button => {
-    button.addEventListener('click', (e) => {
-      e.preventDefault();
-    });
-  });
 });

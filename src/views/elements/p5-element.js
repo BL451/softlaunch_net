@@ -1,10 +1,11 @@
 const sketch = (p) => {
     let fbo0, fbo1;
-    let factor = 32;
+    let factor; // Will be set based on display characteristics
     let canvas;
     let n_spheres = 23;
-    let sphere_rad = 5;
+    let sphere_rad; // Will be set based on display characteristics
     let isMobile = false;
+    let rainTranslation = 0.5; // Will be set based on display characteristics
 
     p.setup = () => {
         p.pixelDensity(1);
@@ -25,6 +26,29 @@ const sketch = (p) => {
         p.strokeWeight(0.5);
         p.background(200, 60, 80);
 
+        // Adaptive factor, sphere size, and rain translation based on pixel density
+        // Scale factor inversely to maintain consistent visual chunkiness
+        factor = window.devicePixelRatio >= 2 ? 32 : 16;
+        sphere_rad = window.devicePixelRatio >= 2 ? 5 : 10;
+
+        // Higher density displays can handle 0.5, lower density need 1.0
+        rainTranslation = window.devicePixelRatio >= 2 ? 0.5 : 1.0;
+
+        // Debug logging for display differences
+        console.log('Display Info:', {
+            windowSize: { w, h },
+            canvasSize: { width: p.width, height: p.height },
+            devicePixelRatio: window.devicePixelRatio,
+            pixelDensity: p.pixelDensity(),
+            factor: factor,
+            fboSize: {
+                width: p.width / factor,
+                height: p.height / factor
+            },
+            rainTranslation: rainTranslation,
+            sphere_rad: sphere_rad
+        });
+
         // Options for creating our framebuffer
         const options = {
             width: p.width / factor,
@@ -37,7 +61,7 @@ const sketch = (p) => {
         isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
         if (isMobile) {
             n_spheres = 8;
-            sphere_rad = 3;
+            sphere_rad = 3; // Override for mobile
         }
 
         // Make the framebuffers
@@ -76,7 +100,7 @@ const sketch = (p) => {
         fbo1.begin();
         p.clear();
         p.push();
-        p.translate(0, 0.5);
+        p.translate(0, rainTranslation);
         p.image(fbo0, 0, 0);
         p.pop();
         p.fill(200, 60, 80, 0.1);
