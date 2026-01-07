@@ -269,6 +269,7 @@ body {
   margin-bottom: 1rem;
   font-size: 1rem;
   line-height: 1.6;
+  min-height: 4.8rem;
 }
 
 .workshop-content ul {
@@ -973,6 +974,10 @@ p:last-child {
 
   .workshop-content {
     padding: 1rem;
+  }
+
+  .workshop-description {
+    min-height: auto;
   }
 
   .workshop-details {

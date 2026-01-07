@@ -23,31 +23,15 @@ const sketch = (p) => {
         p.imageMode(p.CENTER);
         p.rectMode(p.CENTER);
         p.ellipseMode(p.CENTER);
-        p.strokeWeight(0.5);
+        p.strokeWeight(1.5);
         p.background(200, 60, 80);
 
         // Adaptive factor, sphere size, and rain translation based on pixel density
         // Scale factor inversely to maintain consistent visual chunkiness
         factor = window.devicePixelRatio >= 2 ? 32 : 16;
-        sphere_rad = window.devicePixelRatio >= 2 ? 5 : 10;
 
         // Higher density displays can handle 0.5, lower density need 1.0
         rainTranslation = window.devicePixelRatio >= 2 ? 0.5 : 1.0;
-
-        // Debug logging for display differences
-        console.log('Display Info:', {
-            windowSize: { w, h },
-            canvasSize: { width: p.width, height: p.height },
-            devicePixelRatio: window.devicePixelRatio,
-            pixelDensity: p.pixelDensity(),
-            factor: factor,
-            fboSize: {
-                width: p.width / factor,
-                height: p.height / factor
-            },
-            rainTranslation: rainTranslation,
-            sphere_rad: sphere_rad
-        });
 
         // Options for creating our framebuffer
         const options = {
@@ -61,7 +45,7 @@ const sketch = (p) => {
         isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
         if (isMobile) {
             n_spheres = 8;
-            sphere_rad = 3; // Override for mobile
+            //sphere_rad = 3; // Override for mobile
         }
 
         // Make the framebuffers
@@ -72,6 +56,7 @@ const sketch = (p) => {
         } catch (error) {
             console.error('Error creating framebuffers:', error);
         }
+        sphere_rad = 0.2*Math.min(fbo0.width, fbo0.height);
     }
 
     p.draw = () => {
@@ -122,6 +107,8 @@ const sketch = (p) => {
         const w = window.innerWidth;
         const h = window.innerHeight;
         p.resizeCanvas(w, h);
+        factor = window.devicePixelRatio >= 2 ? 32 : 16;
+
         const options = {
             width: p.width / factor,
             height: p.height / factor,
@@ -134,6 +121,9 @@ const sketch = (p) => {
         p.ellipseMode(p.CENTER);
         fbo0 = p.createFramebuffer(options);
         fbo1 = p.createFramebuffer(options);
+        sphere_rad = 0.2*Math.min(fbo0.width, fbo0.height);
+        // Higher density displays can handle 0.5, lower density need 1.0
+        rainTranslation = window.devicePixelRatio >= 2 ? 0.5 : 1.0;
     }
 };
 
