@@ -174,7 +174,7 @@ function e(e){return e&&e.__esModule?e.default:e}var a={};a=import.meta.resolve(
             <div class="team-member">
               <img src="${e(d)}" alt="Benjamin Lappalainen" class="team-photo">
               <div class="team-info">
-                <h3><a href="https://blap64.xyz/" target="_blank" rel="noopener noreferrer">Benjamin Lappalainen</a></h3>
+                <h3><a href="https://blap64.com/" target="_blank" rel="noopener noreferrer">Benjamin Lappalainen</a></h3>
                 <p>Creative technologist and educator creating interactive installations that blur digital and physical boundaries. Focuses on human-centered technology and open source tools for social impact.</p>
               </div>
             </div>
@@ -212,4 +212,4 @@ function e(e){return e&&e.__esModule?e.default:e}var a={};a=import.meta.resolve(
       </section>
     </div>
   `;let k=null;k=window.supabase.createClient("https://kwgxwzywmcslyqvqtzue.supabase.co","sb_publishable_FWrAeJdYCQ7fCIeviahVYw_wOrhPjkB");let y=document.querySelector(".signup-form");y&&y.addEventListener("submit",async function(e){e.preventDefault();let a=new FormData(this),t=a.get("name"),s=a.get("email");if(!t||!s)return void alert("Please fill in both name and email fields.");if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s))return void alert("Please enter a valid email address.");let i=this.querySelector(".signup-button"),r=i.textContent;i.textContent="Adding to list...",i.disabled=!0;try{if(k){let{data:e,error:a}=await k.from("email_signups").insert([{name:t.trim(),email:s.trim().toLowerCase()}]);a?"23505"===a.code?alert("This email is already on our list!"):(console.error("Supabase error:",a),alert("There was an error adding you to our list. Please try again.")):(alert(`Thank you ${t}! We'll keep you updated at ${s}.`),this.reset())}else alert(`Thank you ${t}! We'll keep you updated at ${s}.`),this.reset()}catch(e){console.error("Error:",e),alert("There was an error adding you to our list. Please try again.")}finally{i.textContent=r,i.disabled=!1}});let I=0,A=!1,T=document.querySelectorAll(".carousel-item"),C=document.querySelectorAll(".indicator");function S(e){A||(A=!0,T.forEach(e=>e.classList.remove("active")),C.forEach(e=>e.classList.remove("active")),T[e]&&(T[e].classList.add("active"),C[e].classList.add("active")),I=e,setTimeout(()=>{A=!1},500))}function L(){A||S((I+1)%T.length)}function P(){f=setInterval(L,5e3)}C.forEach((e,a)=>{e.addEventListener("click",()=>{A||(f&&clearInterval(f),S(a),P())})}),T.length>0&&P()});
-//# sourceMappingURL=softlaunch_net.aa22cf53.js.map
+//# sourceMappingURL=softlaunch_net.5200b084.js.map
