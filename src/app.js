@@ -207,7 +207,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="team-member">
               <img src="${benjaminPhoto}" alt="Benjamin Lappalainen" class="team-photo">
               <div class="team-info">
-                <h3><a href="https://blap64.xyz/" target="_blank" rel="noopener noreferrer">Benjamin Lappalainen</a></h3>
+                <h3><a href="https://blap64.com/" target="_blank" rel="noopener noreferrer">Benjamin Lappalainen</a></h3>
                 <p>Creative technologist and educator creating interactive installations that blur digital and physical boundaries. Focuses on human-centered technology and open source tools for social impact.</p>
               </div>
             </div>
