@@ -347,6 +347,14 @@ body {
   color: #0d1b33;
 }
 
+.register-button:disabled {
+  background: rgba(200, 200, 200, 0.5);
+  border-color: rgba(150, 150, 150, 0.4);
+  color: #888;
+  cursor: default;
+  opacity: 0.7;
+}
+
 /* Beyond the Classroom Section */
 .beyond-classroom-section h2 {
   margin-bottom: 1.5rem;

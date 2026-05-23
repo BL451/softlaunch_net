@@ -47,9 +47,21 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="intro-content">
           <img src="${introImage}" alt="Workshop introduction" class="intro-image">
           <div class="intro-text">
-            <p>Take the next step in your art practice by learning creative technology, or expand your experience with technology into the arts.<br><br>In Spring 2026, we're offering three weekend intensives in partnership with InterAccess.<br><br>Learn more and register below!</p>
+            <p>Take the next step in your art practice by learning creative technology, or expand your experience with technology into the arts.<br><br>In Spring 2026, we ran three weekend intensives in partnership with InterAccess. Sign up below to stay tuned for future workshops!</p>
           </div>
         </div>
+      </section>
+
+      <section class="content-section contact-section">
+        <h2>Stay tuned for upcoming workshops!</h2>
+        <form class="signup-form">
+          <div class="form-row">
+            <input type="text" placeholder="Your Name" name="name" required>
+            <input type="email" placeholder="Email Address" name="email" required>
+          </div>
+          <button type="submit" class="signup-button">Join Mailing List</button>
+        </form>
+        <p class="contact-info">Questions? Contact us at <a href="mailto:hello@softlaunch.net">hello@softlaunch.net</a></p>
       </section>
 
       <section class="workshops-container">
@@ -72,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
               <div class="workshop-details">
                 <p><strong>11am - 3pm, March 7-8, 2026</strong></p>
               </div>
-              <a href="https://www.tickettailor.com/events/interaccess/1993936" class="register-button" target="_blank" rel="noopener noreferrer">REGISTER</a>
+              <button class="register-button" disabled>Past Workshop</button>
             </div>
           </article>
 
@@ -93,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
               <div class="workshop-details">
                 <p><strong>11am - 3pm, April 18-19, 2026</strong></p>
               </div>
-              <a href="https://www.tickettailor.com/events/interaccess/1993943" class="register-button" target="_blank" rel="noopener noreferrer">REGISTER</a>
+              <button class="register-button" disabled>Past Workshop</button>
             </div>
           </article>
 
@@ -114,7 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
               <div class="workshop-details">
                 <p><strong>11am - 3pm, May 16-17, 2026</strong></p>
               </div>
-              <a href="https://www.tickettailor.com/events/interaccess/1993944" class="register-button" target="_blank" rel="noopener noreferrer">REGISTER</a>
+              <button class="register-button" disabled>Past Workshop</button>
             </div>
           </article>
 
@@ -125,12 +137,12 @@ document.addEventListener('DOMContentLoaded', () => {
         <h2>Beyond the Classroom</h2>
         <div class="beyond-classroom-grid">
           <div class="beyond-classroom-text">
-            <p>In addition to skills learned during each weekend course, students will also:</p>
+            <p>In addition to skills learned during each weekend course, students also:</p>
             <ul>
-              <li>Receive a <b>complimentary 1 month studio membership to InterAccess</b>, including tool training and makerspace facilities</li>
-              <li>Showcase their work in the <b>Spring Showcase May 23rd & 24th, 2026</b></li>
+              <li>Received a <b>complimentary 1 month studio membership to InterAccess</b>, including tool training and makerspace facilities</li>
+              <li>Showcased their work in the <b>Spring Showcase May 23rd & 24th, 2026</b>, held as part of <a href="https://www.toronto.ca/explore-enjoy/festivals-events/doors-open-toronto" target="_blank" rel="noopener noreferrer">Doors Open Toronto</a></li>
             </ul>
-            <p>Through these initiatives, we aim to give students further opportunities to build their new media arts practice and engage with Toronto's creative communities.</p>
+            <p>Through these initiatives, we gave students further opportunities to build their new media arts practice and engage with Toronto's creative communities.</p>
           </div>
 
           <div class="beyond-classroom-carousel">
@@ -232,17 +244,6 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
       </section>
 
-      <section class="content-section contact-section">
-        <h2>Stay Connected</h2>
-        <form class="signup-form">
-          <div class="form-row">
-            <input type="text" placeholder="Your Name" name="name" required>
-            <input type="email" placeholder="Email Address" name="email" required>
-          </div>
-          <button type="submit" class="signup-button">Join Mailing List</button>
-        </form>
-        <p class="contact-info">Questions? Contact us at <a href="mailto:hello@softlaunch.net">hello@softlaunch.net</a></p>
-      </section>
     </div>
   `;
 
