@@ -255,7 +255,6 @@ a {
   justify-content: center;
   min-height: calc(100vh - 2.5rem);
   width: 100%;
-  overflow: hidden;
 }
 
 .home-window {
@@ -265,10 +264,14 @@ a {
   margin: 0;
 }
 
-/* Scattered decorative workshop windows behind the main one */
+/* Scattered decorative workshop windows behind the main one.
+   Fixed to the viewport so dragged windows clip at the true screen
+   edges on all sides, rather than at .home-desktop's padding-inset
+   box (which would slice them and reveal the teal background). */
 .home-scatter {
-  position: absolute;
+  position: fixed;
   inset: 0;
+  overflow: hidden;
   pointer-events: none;
 }
 

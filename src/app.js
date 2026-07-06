@@ -13,31 +13,31 @@ import taraPhoto from 'url:./assets/images/leads/tara.webp';
 import benjaminPhoto from 'url:./assets/images/leads/benjamin.webp';
 import interaccessLogo from 'url:./assets/images/partners/interaccess.webp';
 import ukaiLogo from 'url:./assets/images/partners/ukaiprojects.webp';
-import culturalTechLogo from 'url:./assets/images/partners/culturaltechnolgieslab.webp';
+import newSystemsLogo from 'url:./assets/images/partners/newsystems.webp';
 // Workshop photos
-import ic1 from 'url:./assets/images/internetcanvas/softlaunch-05772.jpg';
-import ic2 from 'url:./assets/images/internetcanvas/softlaunch-05776.jpg';
-import ic3 from 'url:./assets/images/internetcanvas/softlaunch-05788.jpg';
-import ic4 from 'url:./assets/images/internetcanvas/softlaunch-05794.jpg';
+import ic1 from 'url:./assets/images/internetcanvas/softlaunch-05772.webp';
+import ic2 from 'url:./assets/images/internetcanvas/softlaunch-05776.webp';
+import ic3 from 'url:./assets/images/internetcanvas/softlaunch-05788.webp';
+import ic4 from 'url:./assets/images/internetcanvas/softlaunch-05794.webp';
 
-import rs1 from 'url:./assets/images/reactivespace/softlaunch-07263.jpg';
-import rs2 from 'url:./assets/images/reactivespace/softlaunch-07297.jpg';
-import rs3 from 'url:./assets/images/reactivespace/softlaunch-07310.jpg';
-import rs4 from 'url:./assets/images/reactivespace/softlaunch-07330.jpg';
-import rs5 from 'url:./assets/images/reactivespace/softlaunch-07340.jpg';
-import rs6 from 'url:./assets/images/reactivespace/softlaunch-07372.jpg';
-import rs7 from 'url:./assets/images/reactivespace/softlaunch-07396.jpg';
-import rs8 from 'url:./assets/images/reactivespace/softlaunch-07461.jpg';
+import rs1 from 'url:./assets/images/reactivespace/softlaunch-07263.webp';
+import rs2 from 'url:./assets/images/reactivespace/softlaunch-07297.webp';
+import rs3 from 'url:./assets/images/reactivespace/softlaunch-07310.webp';
+import rs4 from 'url:./assets/images/reactivespace/softlaunch-07330.webp';
+import rs5 from 'url:./assets/images/reactivespace/softlaunch-07340.webp';
+import rs6 from 'url:./assets/images/reactivespace/softlaunch-07372.webp';
+import rs7 from 'url:./assets/images/reactivespace/softlaunch-07396.webp';
+import rs8 from 'url:./assets/images/reactivespace/softlaunch-07461.webp';
 
-import sw1 from 'url:./assets/images/syntheticworlds/softlaunch-07923.jpg';
-import sw2 from 'url:./assets/images/syntheticworlds/softlaunch-07934.jpg';
-import sw3 from 'url:./assets/images/syntheticworlds/softlaunch-07949.jpg';
-import sw4 from 'url:./assets/images/syntheticworlds/softlaunch-07957.jpg';
+import sw1 from 'url:./assets/images/syntheticworlds/softlaunch-07923.webp';
+import sw2 from 'url:./assets/images/syntheticworlds/softlaunch-07934.webp';
+import sw3 from 'url:./assets/images/syntheticworlds/softlaunch-07949.webp';
+import sw4 from 'url:./assets/images/syntheticworlds/softlaunch-07957.webp';
 
-import doors1 from 'url:./assets/images/doorsopen/softlaunch-07984.jpg';
-import doors2 from 'url:./assets/images/doorsopen/softlaunch-08083.jpg';
-import doors3 from 'url:./assets/images/doorsopen/softlaunch-08122.jpg';
-import doors4 from 'url:./assets/images/doorsopen/softlaunch-08124.jpg';
+import doors1 from 'url:./assets/images/doorsopen/softlaunch-07984.webp';
+import doors2 from 'url:./assets/images/doorsopen/softlaunch-08083.webp';
+import doors3 from 'url:./assets/images/doorsopen/softlaunch-08122.webp';
+import doors4 from 'url:./assets/images/doorsopen/softlaunch-08124.webp';
 
 import { getRandomTestimonials } from './data/testimonials.js';
 
@@ -415,16 +415,16 @@ function renderAbout() {
   const partnersBody = `
     <div class="partners-grid">
       <div class="partner-item">
+        <img src="${newSystemsLogo}" alt="New Systems" class="partner-logo">
+        <h3><a href="https://newsystems.ca/" target="_blank" rel="noopener noreferrer">New Systems</a></h3>
+      </div>
+      <div class="partner-item">
         <img src="${interaccessLogo}" alt="InterAccess" class="partner-logo">
         <h3><a href="https://interaccess.org" target="_blank" rel="noopener noreferrer">InterAccess</a></h3>
       </div>
       <div class="partner-item">
         <img src="${ukaiLogo}" alt="UKAI Projects" class="partner-logo">
         <h3><a href="https://ukaiprojects.com" target="_blank" rel="noopener noreferrer">UKAI Projects</a></h3>
-      </div>
-      <div class="partner-item">
-        <img src="${culturalTechLogo}" alt="Cultural Technologies Lab" class="partner-logo">
-        <h3><a href="https://www.culturaltechnologieslab.org/" target="_blank" rel="noopener noreferrer">Cultural Technologies Lab</a></h3>
       </div>
     </div>
   `;

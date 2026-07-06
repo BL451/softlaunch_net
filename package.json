@@ -2,7 +2,7 @@
   "name": "softlaunch_net",
   "version": "1.0.0",
   "scripts": {
-    "start": "parcel ./*.html",
+    "start": "rm -rf .parcel-cache && parcel ./*.html",
     "predeploy": "rm -rf dist && parcel build ./*.html --public-url https://softlaunch.net && cp CNAME ./dist",
     "deploy": "gh-pages -d dist"
   },
