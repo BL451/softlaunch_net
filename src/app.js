@@ -291,8 +291,18 @@ function renderHome() {
 }
 
 function renderUpcoming() {
+  const eventBody = `
+    <p class="previous-date">Sat July 25 &amp; Sun July 26 · 11 AM – 3 PM</p>
+    <h3 class="previous-subtitle">New Stadium — 83 Walnut Ave, Toronto</h3>
+    <p class="previous-summary">A hands-on weekend introduction to TouchDesigner — the node-based software behind interactive installations and real-time visuals. Build projects from the ground up, work with CHOPs, TOPs, POPs and COMPs, make visuals audio-reactive, and drive them with body tracking via MediaPipe. You'll leave with a working prototype of an interactive installation.</p>
+    <p class="event-fee">$250 · Spots limited · Bring your own laptop (install TouchDesigner in advance)</p>
+    <div class="event-cta">
+      <a class="signup-button" href="https://buytickets.at/softlaunch/2299646" target="_blank" rel="noopener noreferrer">Get Tickets</a>
+    </div>
+  `;
+
   const body = `
-    <p>Add your email to be notified when registration opens.</p>
+    <p>Add your email to be notified when registration opens for upcoming workshops.</p>
     <form class="signup-form">
       <div class="form-row">
         <input type="text" placeholder="Your Name" name="name" required>
@@ -308,7 +318,9 @@ function renderUpcoming() {
       <h1 class="page-title">Upcoming</h1>
     </header>
 
-    ${windowBox('Summer workshop signup coming soon', body, 'contact-section')}
+    ${windowBox('TouchDesigner 101', eventBody)}
+
+    ${windowBox('Future Workshop Notifications', body, 'contact-section')}
 
     ${rotatingTestimonial()}
   `;
@@ -373,7 +385,7 @@ function renderAbout() {
   ).join('');
 
   const aboutBody = `
-    <p>Softlaunch is an education collective working to make new media practices accessible to artists and technologists alike in Toronto and beyond. Our first series of weekend intensives built foundations in TouchDesigner, Generative AI, and Creative Code, which we will continue in future sessions. Check our <a href="https://instagram.com/softlaunch_net" target="_blank" rel="noopener noreferrer">Instagram</a> or <a href="#/">home page</a> for upcoming workshops.</p>
+    <p>soft_launch is an education collective working to make new media practices accessible to artists and technologists alike in Toronto and beyond. Our first series of weekend intensives built foundations in TouchDesigner, Generative AI, and Creative Code, which we will continue in future sessions. Check our <a href="https://instagram.com/softlaunch_net" target="_blank" rel="noopener noreferrer">Instagram</a> or <a href="#/">home page</a> for upcoming workshops.</p>
   `;
 
   const facilitatorsBody = `
@@ -393,7 +405,7 @@ function renderAbout() {
         <img src="${benjaminPhoto}" alt="Benjamin Lappalainen" class="team-photo">
         <div class="team-info">
           <h3><a href="https://blap64.com/" target="_blank" rel="noopener noreferrer">Benjamin Lappalainen</a></h3>
-          <p>Creative technologist and educator creating interactive installations that blur digital and physical boundaries. Focuses on human-centered technology and open source tools for social impact.</p>
+          <p>Creative technologist, artist, and educator making interactive installations, kinetic sculpture, and creative code that reveal how perceptive and generative technologies actually work.</p>
           <ul class="facilitator-links">
             <li><a href="https://www.blap64.com" target="_blank" rel="noopener noreferrer">www.blap64.com</a></li>
             <li><a href="https://instagram.com/blapcode" target="_blank" rel="noopener noreferrer">instagram.com/blapcode</a></li>

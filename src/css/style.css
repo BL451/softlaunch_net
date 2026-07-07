@@ -739,6 +739,17 @@ a {
   padding: 0.6rem 1.5rem;
 }
 
+.event-fee {
+  font-weight: 700;
+  margin: 1rem 0 0;
+}
+
+.event-cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.2rem;
+}
+
 .contact-info {
   margin-top: 1.1rem;
   font-size: 0.95rem;
