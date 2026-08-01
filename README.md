@@ -8,14 +8,25 @@ This is a small static website. It's built with [Parcel](https://parceljs.org/) 
 
 ## What's in here
 
+Each page of the site is its own HTML file. The text and photos you'd want to
+change live directly in these files — edit them like a document.
+
 | Folder / file | What it is |
 |---|---|
-| `index.html` | The main page shell. |
-| `src/` | All the actual website code — JavaScript, CSS, fonts, and images. |
-| `src/app.js` | The main script. The email form and Supabase keys live here. |
+| `index.html` | The home page. |
+| `upcoming/index.html` | The Upcoming page. |
+| `previous/index.html` | The Previous page — one block per past workshop. |
+| `about/index.html` | The About page — bios, photo carousel, partners. |
+| `src/` | Supporting code — JavaScript, CSS, fonts, and images. |
+| `src/app.js` | Interactive bits: email form, photo viewer, carousel, testimonials. Supabase keys live here. |
+| `src/css/style.css` | All the styling. |
 | `dist/` | The built website that gets published. **Don't edit this by hand** — it's generated. |
 | `CNAME` | Tells GitHub Pages to use the `softlaunch.net` domain. Leave it alone. |
+| `robots.txt`, `sitemap.xml` | Search engine hints. Add new pages to the sitemap. |
 | `SUPABASE_SETUP.md` | Step-by-step guide for the email signup database. |
+
+> **Adding a page?** Copy an existing one, then add it to both the `start` and
+> `predeploy` commands in `package.json` and to `sitemap.xml`.
 
 ---
 

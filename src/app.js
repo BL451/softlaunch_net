@@ -1,20 +1,15 @@
 // ============================================================
-//  Image assets (Parcel URL imports)
+//  soft_launch — page behaviour
+//
+//  Page content lives in the static HTML files (index.html,
+//  upcoming/, previous/, about/). This file only adds behaviour:
+//  the scattered home photos, the testimonial rotator, the signup
+//  form, the About carousel and the image lightbox. Every init
+//  bails out early when its markup isn't on the current page, so
+//  the same bundle is safe to load everywhere.
 // ============================================================
-import gallery1 from 'url:./assets/images/gallery/01-projecting-future-workshop.webp';
-import gallery2 from 'url:./assets/images/gallery/04-biosonification-moca.webp';
-import gallery3 from 'url:./assets/images/gallery/05-open-studio.webp';
-import gallery4 from 'url:./assets/images/gallery/dsc00497.webp';
-import taraArt2 from 'url:./assets/images/gallery/Tara_Art_2.webp';
-import sketchingFlock from 'url:./assets/images/gallery/Sketching Flock.webp';
-import taraArt1 from 'url:./assets/images/gallery/Tara_Art_1.webp';
-import lw13 from 'url:./assets/images/gallery/lw13_1-15.webp';
-import taraPhoto from 'url:./assets/images/leads/tara.webp';
-import benjaminPhoto from 'url:./assets/images/leads/benjamin.webp';
-import interaccessLogo from 'url:./assets/images/partners/interaccess.webp';
-import ukaiLogo from 'url:./assets/images/partners/ukaiprojects.webp';
-import newSystemsLogo from 'url:./assets/images/partners/newsystems.webp';
-// Workshop photos
+
+// Workshop photos, used for the decorative scatter on the home page.
 import ic1 from 'url:./assets/images/internetcanvas/softlaunch-05772.webp';
 import ic2 from 'url:./assets/images/internetcanvas/softlaunch-05776.webp';
 import ic3 from 'url:./assets/images/internetcanvas/softlaunch-05788.webp';
@@ -34,170 +29,22 @@ import sw2 from 'url:./assets/images/syntheticworlds/softlaunch-07934.webp';
 import sw3 from 'url:./assets/images/syntheticworlds/softlaunch-07949.webp';
 import sw4 from 'url:./assets/images/syntheticworlds/softlaunch-07957.webp';
 
-import doors1 from 'url:./assets/images/doorsopen/softlaunch-07984.webp';
-import doors2 from 'url:./assets/images/doorsopen/softlaunch-08083.webp';
-import doors3 from 'url:./assets/images/doorsopen/softlaunch-08122.webp';
-import doors4 from 'url:./assets/images/doorsopen/softlaunch-08124.webp';
-
 import { getRandomTestimonials } from './data/testimonials.js';
 
-// ============================================================
-//  Shared markup helpers
-// ============================================================
-const cloudSvg = `<svg class="cloud-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" fill="currentColor" aria-hidden="true"><path d="M537.6 226.6c4.1-10.7 6.4-22.4 6.4-34.6c0-53-43-96-96-96c-19.7 0-38.1 6-53.3 16.2C367 64.2 315.3 32 256 32c-88.4 0-160 71.6-160 160c0 2.7.1 5.4.2 8.1C40.2 219.8 0 273.2 0 336c0 79.5 64.5 144 144 144h368c70.7 0 128-57.3 128-128c0-61.9-44-113.6-102.4-125.4z"/></svg>`;
-
-// A Windows-style "window": a title bar (heading + cloud button) over a body.
-function windowBox(title, body, className = '') {
-  return `
-    <section class="win${className ? ' ' + className : ''}">
-      <div class="win-title">
-        <span class="win-title-text">${title}</span>
-        <span class="win-title-btn" aria-hidden="true">${cloudSvg}</span>
-      </div>
-      <div class="win-body">${body}</div>
-    </section>
-  `;
-}
-
-// Navigation pages used by the dockable menu
-const NAV = [
-  { path: '/upcoming', label: 'Upcoming' },
-  { path: '/previous', label: 'Previous' },
-  { path: '/about', label: 'About' },
+const SCATTER_PHOTOS = [
+  ic1, ic2, ic3, ic4,
+  rs1, rs2, rs3, rs4, rs5, rs6, rs7, rs8,
+  sw1, sw2, sw3, sw4,
 ];
 
-// Past workshops shown on the Previous page. Kept in chronological order —
-// the array index is the lightbox gallery key — and rendered newest-first
-// by `when`, which also slots in the Doors Open showcase.
-const WORKSHOPS = [
-  {
-    when: '2026-03',
-    date: 'March 2026',
-    title: 'Internet Canvas',
-    subtitle: 'Creative Coding with the Browser',
-    summary:
-      'Students coded their own net art using the web as both medium and canvas — learning HTML, CSS and JavaScript, how to host sites with GitHub, and creative coding libraries like p5.js, Three.js and MediaPipe, all within the historical context of net art.',
-    images: [ic1, ic2, ic3, ic4],
-  },
-  {
-    when: '2026-04',
-    date: 'April 2026',
-    title: 'Reactive Space',
-    subtitle: 'Interactive Installations with TouchDesigner',
-    summary:
-      'Students built interactive audio-visual installations in TouchDesigner — working with node-based workflows, audio-reactive visuals, computer-vision body tracking and projection mapping, culminating in a documented installation in the InterAccess space.',
-    images: [rs1, rs2, rs3, rs4, rs5, rs6, rs7, rs8],
-  },
-  {
-    when: '2026-05-a',
-    date: 'May 2026',
-    title: 'Synthetic Worlds',
-    subtitle: 'Making Images & Video with Generative AI',
-    summary:
-      'Students demystified generative AI for image and video — learning technical workflows, worldbuilding prompt techniques, critical skills for identifying AI-generated content and the ethics of AI art-making, to create their own narrative worldbuilding collection.',
-    images: [sw1, sw2, sw3, sw4],
-  },
-  {
-    when: '2026-07',
-    date: 'July 2026',
-    title: 'TouchDesigner 101',
-    subtitle: 'A Weekend Introduction to TouchDesigner',
-    summary:
-      'Students got a hands-on introduction to TouchDesigner — the node-based software behind interactive installations and real-time visuals — building projects from the ground up, working with CHOPs, TOPs, POPs and COMPs, making visuals audio-reactive and driving them with body tracking via MediaPipe, and leaving with a working prototype of an interactive installation.',
-    images: [],
-  },
-];
-
-// Photos from the Doors Open Toronto showcase
-const DOORS_PHOTOS = [doors1, doors2, doors3, doors4];
-
-// Photos for the Facilitator Work slideshow (About page), labelled by source
-const GALLERY = [
-  { img: taraArt2, label: "Tara's FLOWERS LED wall installation, PHNTM Labs (2023)", credit: 'Photo: Tara Rose Morris' },
-  { img: sketchingFlock, label: "Benjamin's SKETCHING FLOCK, InterAccess OpenHDMI (2024)", credit: 'Photo: Benjamin Lappalainen' },
-  { img: taraArt1, label: "Tara's MITHAI performance, InterAccess P2P (2024)", credit: 'Photo: Tara Rose Morris' },
-  { img: lw13, label: "Benjamin's live audio-reactive visuals, Long Winter 13.1 (2024)", credit: 'Photo: Benjamin Lappalainen' },
-  { img: gallery1, label: 'Projecting the Future workshop (2023)', credit: 'Photo: Simon Rojas' },
-  { img: gallery2, label: 'BioSonification installation, MOCA (2019)', credit: 'Photo: Tosca Terán' },
-  { img: gallery3, label: 'Open Studio community showcase', credit: 'Photo: Courtesy of InterAccess' },
-  { img: gallery4, label: 'PROGRAM09: MEDIAPIPE, New Stadium (2025)', credit: 'Photo: PROGRAM media team' },
-];
-
-function navBar(activePath) {
-  const links = NAV.map(
-    (item) =>
-      `<a href="#${item.path}" class="nav-link${activePath === item.path ? ' active' : ''}">${item.label}</a>`
-  ).join('');
-
-  return `
-    <nav class="site-nav">
-      <a href="#/" class="nav-brand${activePath === '/' ? ' active' : ''}" aria-label="soft_launch home">
-        ${cloudSvg}
-        <span class="nav-brand-text">soft_launch</span>
-      </a>
-      <div class="nav-links">${links}</div>
-    </nav>
-  `;
-}
-
-// Reusable testimonials block — pulls random quotes from the
-// testimonials data file. Pass options through to getRandomTestimonials,
-// e.g. testimonialsSection(2, { tag: 'touchdesigner' }).
-function testimonialsSection(count = 2, options = {}) {
-  const cards = getRandomTestimonials(count, options)
-    .map(
-      (t) => `
-        <blockquote class="testimonial-card">
-          <p>\u201C${t.quote}\u201D</p>
-        </blockquote>`
-    )
-    .join('');
-
-  return windowBox('Testimonials', `<div class="testimonials-grid">${cards}</div>`, 'testimonials-section');
-}
-
-// A single auto-rotating testimonial (used on the Upcoming page).
-function rotatingTestimonial() {
-  return windowBox(
-    'Testimonials',
-    `<blockquote class="testimonial-rotator"><p class="testimonial-quote"></p></blockquote>`,
-    'testimonials-section'
-  );
-}
-
-function initTestimonialRotator() {
-  const quoteEl = document.querySelector('.testimonial-rotator .testimonial-quote');
-  if (!quoteEl) return;
-
-  const items = getRandomTestimonials(99);
-  if (!items.length) return;
-
-  let i = 0;
-  const render = () => {
-    quoteEl.textContent = '\u201C' + items[i].quote + '\u201D';
-  };
-  render();
-
-  clearInterval(window.__testimonialTimer);
-  if (items.length > 1) {
-    window.__testimonialTimer = setInterval(() => {
-      quoteEl.classList.add('is-fading');
-      setTimeout(() => {
-        i = (i + 1) % items.length;
-        render();
-        quoteEl.classList.remove('is-fading');
-      }, 350);
-    }, 6000);
-  }
-}
+// Masked in CSS — see the .cloud-icon rule in style.css.
+const cloudIcon = `<span class="cloud-icon" aria-hidden="true"></span>`;
 
 // ============================================================
-//  Pages
+//  Home page — scattered photo windows
 // ============================================================
-// Decorative mini-windows scattered behind the main home window.
 // Photos, sizes, positions and rotation are randomized on every visit.
 function homeScatterWindows() {
-  const pool = WORKSHOPS.flatMap((w) => w.images);
   // Loose zones (in %) keep the windows spread out and clear of the center.
   const zones = [
     { l: [0, 16], t: [2, 16] },
@@ -208,7 +55,7 @@ function homeScatterWindows() {
     { l: [30, 50], t: [0, 8] },
   ];
 
-  const picks = [...pool].sort(() => Math.random() - 0.5).slice(0, zones.length);
+  const picks = [...SCATTER_PHOTOS].sort(() => Math.random() - 0.5).slice(0, zones.length);
   const rand = (min, max) => min + Math.random() * (max - min);
 
   return picks
@@ -223,7 +70,7 @@ function homeScatterWindows() {
              style="left:${left}%;top:${top}%;width:${width}px;transform:rotate(${rot}deg)">
           <div class="win-title scatter-handle">
             <span class="win-title-text"></span>
-            <span class="win-title-btn">${cloudSvg}</span>
+            <span class="win-title-btn">${cloudIcon}</span>
           </div>
           <div class="win-body scatter-body">
             <img src="${img}" alt="" loading="lazy" draggable="false">
@@ -236,7 +83,12 @@ function homeScatterWindows() {
 // Make the scattered home windows draggable, click-to-front.
 let scatterZ = 3;
 function initHomeScatter() {
-  document.querySelectorAll('.scatter-win').forEach((win) => {
+  const host = document.querySelector('.home-scatter');
+  if (!host) return;
+
+  host.innerHTML = homeScatterWindows();
+
+  host.querySelectorAll('.scatter-win').forEach((win) => {
     win.addEventListener('pointerdown', (e) => {
       e.preventDefault();
       const startX = e.clientX;
@@ -274,232 +126,49 @@ function initHomeScatter() {
   });
 }
 
-function renderHome() {
-  const links = [
-    { path: '/upcoming', label: 'Upcoming' },
-    { path: '/previous', label: 'Previous' },
-    { path: '/about', label: 'About' },
-  ]
-    .map((c) => `<a href="#${c.path}" class="home-oval">${c.label}</a>`)
-    .join('');
-
-  return `
-    <section class="home-desktop">
-      <div class="home-scatter" aria-hidden="true">${homeScatterWindows()}</div>
-      <div class="win home-window">
-        <div class="win-title">
-          <span class="win-title-text">soft_launch</span>
-          <span class="win-title-btn" aria-hidden="true">${cloudSvg}</span>
-        </div>
-        <div class="win-body home-window-body">
-          <div class="brand-stack">
-            ${cloudSvg}
-            <h1 class="brand-title">soft_launch</h1>
-            <p class="brand-subtitle">art x technology learning</p>
-          </div>
-          <div class="home-links">${links}</div>
-        </div>
-      </div>
-    </section>
-  `;
-}
-
-function renderUpcoming() {
-  const body = `
-    <p>Add your email to be notified when registration opens for upcoming workshops.</p>
-    <form class="signup-form">
-      <div class="form-row">
-        <input type="text" placeholder="Your Name" name="name" required>
-        <input type="email" placeholder="Email Address" name="email" required>
-      </div>
-      <button type="submit" class="signup-button">Notify Me</button>
-    </form>
-    <p class="contact-info">Questions? Contact us at <a href="mailto:hello@softlaunch.net">hello@softlaunch.net</a></p>
-  `;
-
-  return `
-    <header class="page-header">
-      <h1 class="page-title">Upcoming</h1>
-    </header>
-
-    ${windowBox('Future Workshop Notifications', body, 'contact-section')}
-
-    ${rotatingTestimonial()}
-  `;
-}
-
-function renderPrevious() {
-  const workshopCards = WORKSHOPS.map((w, i) => ({
-    when: w.when,
-    html: windowBox(
-      w.title,
-      `
-        <p class="previous-date">${w.date}</p>
-        <h3 class="previous-subtitle">${w.subtitle}</h3>
-        <p class="previous-summary">${w.summary}</p>
-        ${
-          w.images.length
-            ? `<div class="workshop-gallery">
-          ${w.images
-            .map(
-              (src, idx) =>
-                `<img src="${src}" alt="${w.title} workshop" class="workshop-photo" loading="lazy" data-gallery="workshop-${i}" data-index="${idx}">`
-            )
-            .join('')}
-        </div>`
-            : ''
-        }
-      `,
-      'previous-card'
-    ),
-  }));
-
-  const doorsBody = `
-    <p class="previous-date">May 2026</p>
-    <p class="previous-summary">Students of the pilot program had the opportunity to share their work during Doors Open TO at InterAccess.</p>
-    <div class="doors-photos">
-      ${DOORS_PHOTOS.map(
-        (src, i) =>
-          `<img src="${src}" alt="Doors Open Toronto showcase" class="doors-photo" loading="lazy" data-gallery="doors" data-index="${i}">`
-      ).join('')}
-    </div>
-  `;
-
-  // Doors Open sits in late May, after the Synthetic Worlds workshop.
-  const doorsCard = { when: '2026-05-b', html: windowBox('Doors Open Toronto', doorsBody) };
-
-  const cards = [...workshopCards, doorsCard]
-    .sort((a, b) => b.when.localeCompare(a.when))
-    .map((c) => c.html)
-    .join('');
-
-  return `
-    <header class="page-header">
-      <h1 class="page-title">Previous</h1>
-    </header>
-
-    <div class="previous-grid">${cards}</div>
-
-    ${testimonialsSection()}
-  `;
-}
-
-function renderAbout() {
-  const slides = GALLERY.map(
-    (g, i) => `
-      <div class="carousel-item${i === 0 ? ' active' : ''}">
-        <img src="${g.img}" alt="${g.label}" class="carousel-image" data-gallery="facilitator" data-index="${i}">
-        <p class="carousel-caption">${g.label}</p>
-        <p class="carousel-credit">${g.credit}</p>
-      </div>`
-  ).join('');
-
-  const indicators = GALLERY.map(
-    (_, i) => `<span class="indicator${i === 0 ? ' active' : ''}" data-slide="${i}"></span>`
-  ).join('');
-
-  const aboutBody = `
-    <p>soft_launch is an education collective working to make new media practices accessible to artists and technologists alike in Toronto and beyond. Our first series of weekend intensives built foundations in TouchDesigner, Generative AI, and Creative Code, which we will continue in future sessions. Check our <a href="https://instagram.com/softlaunch_net" target="_blank" rel="noopener noreferrer">Instagram</a> or <a href="#/">home page</a> for upcoming workshops.</p>
-  `;
-
-  const facilitatorsBody = `
-    <div class="team-grid">
-      <div class="team-member">
-        <img src="${taraPhoto}" alt="Tara Rose Morris" class="team-photo">
-        <div class="team-info">
-          <h3><a href="https://www.taramoves.com/" target="_blank" rel="noopener noreferrer">Tara Rose Morris</a></h3>
-          <p>Artist and creative technologist using technology for live performances and immersive installations exploring art, code, and liminal ontologies of embodiment.</p>
-          <ul class="facilitator-links">
-            <li><a href="https://www.taramoves.com" target="_blank" rel="noopener noreferrer">www.taramoves.com</a></li>
-            <li><a href="https://instagram.com/taramoves" target="_blank" rel="noopener noreferrer">instagram.com/taramoves</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="team-member">
-        <img src="${benjaminPhoto}" alt="Benjamin Lappalainen" class="team-photo">
-        <div class="team-info">
-          <h3><a href="https://blap64.com/" target="_blank" rel="noopener noreferrer">Benjamin Lappalainen</a></h3>
-          <p>Creative technologist, artist, and educator making interactive installations, kinetic sculpture, and creative code that reveal how perceptive and generative technologies actually work.</p>
-          <ul class="facilitator-links">
-            <li><a href="https://www.blap64.com" target="_blank" rel="noopener noreferrer">www.blap64.com</a></li>
-            <li><a href="https://instagram.com/blapcode" target="_blank" rel="noopener noreferrer">instagram.com/blapcode</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  `;
-
-  const workBody = `
-    <div class="carousel-container">
-      <div class="carousel-track">${slides}</div>
-      <div class="carousel-controls">
-        <div class="carousel-indicators">${indicators}</div>
-      </div>
-    </div>
-  `;
-
-  const partnersBody = `
-    <div class="partners-grid">
-      <div class="partner-item">
-        <img src="${newSystemsLogo}" alt="New Systems" class="partner-logo">
-        <h3><a href="https://newsystems.ca/" target="_blank" rel="noopener noreferrer">New Systems</a></h3>
-      </div>
-      <div class="partner-item">
-        <img src="${interaccessLogo}" alt="InterAccess" class="partner-logo">
-        <h3><a href="https://interaccess.org" target="_blank" rel="noopener noreferrer">InterAccess</a></h3>
-      </div>
-      <div class="partner-item">
-        <img src="${ukaiLogo}" alt="UKAI Projects" class="partner-logo">
-        <h3><a href="https://ukaiprojects.com" target="_blank" rel="noopener noreferrer">UKAI Projects</a></h3>
-      </div>
-    </div>
-  `;
-
-  return `
-    <header class="page-header">
-      <h1 class="page-title">About</h1>
-    </header>
-
-    ${windowBox('About', aboutBody, 'about-section')}
-    ${windowBox('Facilitators', facilitatorsBody)}
-    ${windowBox('Facilitator Work', workBody)}
-    ${windowBox('Partners', partnersBody)}
-  `;
-}
-
 // ============================================================
-//  Router
+//  Testimonials
 // ============================================================
-const routes = {
-  '/': renderHome,
-  '/upcoming': renderUpcoming,
-  '/previous': renderPrevious,
-  '/about': renderAbout,
-};
+// A grid of random quotes: <div class="testimonials-grid" data-testimonials="2">
+function initTestimonialCards() {
+  document.querySelectorAll('[data-testimonials]').forEach((grid) => {
+    const count = parseInt(grid.getAttribute('data-testimonials'), 10) || 2;
+    grid.innerHTML = getRandomTestimonials(count)
+      .map(
+        (t) => `
+        <blockquote class="testimonial-card">
+          <p>“${t.quote}”</p>
+        </blockquote>`
+      )
+      .join('');
+  });
+}
 
-function router() {
-  const app = document.getElementById('app');
-  if (!app) return;
+// A single quote that cycles on a timer.
+function initTestimonialRotator() {
+  const quoteEl = document.querySelector('.testimonial-rotator .testimonial-quote');
+  if (!quoteEl) return;
 
-  const path = window.location.hash.replace(/^#/, '') || '/';
-  const render = routes[path] || renderHome;
-  const isHome = path === '/';
+  const items = getRandomTestimonials(99);
+  if (!items.length) return;
 
-  app.innerHTML = `
-    ${isHome ? '' : navBar(path)}
-    <div class="page${isHome ? ' page-home' : ''}">
-      ${render()}
-    </div>
-  `;
+  let i = 0;
+  const render = () => {
+    quoteEl.textContent = '“' + items[i].quote + '”';
+  };
+  render();
 
-  window.scrollTo(0, 0);
-
-  if (path === '/') initHomeScatter();
-  if (path === '/upcoming') {
-    initSignupForm();
-    initTestimonialRotator();
+  clearInterval(window.__testimonialTimer);
+  if (items.length > 1) {
+    window.__testimonialTimer = setInterval(() => {
+      quoteEl.classList.add('is-fading');
+      setTimeout(() => {
+        i = (i + 1) % items.length;
+        render();
+        quoteEl.classList.remove('is-fading');
+      }, 350);
+    }, 6000);
   }
-  if (path === '/about') initCarousel();
 }
 
 // ============================================================
@@ -572,7 +241,7 @@ function initSignupForm() {
 }
 
 // ============================================================
-//  Carousel (Previous page photo slideshow)
+//  Carousel (About page — Facilitator Work slideshow)
 // ============================================================
 function initCarousel() {
   let currentSlide = 0;
@@ -629,19 +298,9 @@ function initCarousel() {
 // ============================================================
 //  Lightbox gallery (click an image to open a Windows-style viewer)
 // ============================================================
-// Each gallery group maps a key (set via data-gallery on the images) to a
-// title and an ordered list of images, so a click opens just that section.
-const GALLERIES = {
-  doors: { title: 'Doors Open Toronto', items: DOORS_PHOTOS.map((src) => ({ src })) },
-  facilitator: {
-    title: 'Facilitator Work',
-    items: GALLERY.map((g) => ({ src: g.img, caption: g.credit ? `${g.label} — ${g.credit}` : g.label })),
-  },
-};
-WORKSHOPS.forEach((w, i) => {
-  GALLERIES[`workshop-${i}`] = { title: w.title, items: w.images.map((src) => ({ src })) };
-});
-
+// Groups are read straight off the page: images sharing a data-gallery
+// value open together, in DOM order. data-gallery-title names the window
+// and data-caption (optional) is shown under the image.
 let lightboxItems = [];
 let lightboxIndex = 0;
 let lightboxEls = null;
@@ -709,13 +368,12 @@ function showLightbox() {
   els.next.style.visibility = multi ? '' : 'hidden';
 }
 
-function openLightbox(groupKey, index) {
-  const group = GALLERIES[groupKey];
-  if (!group) return;
+function openLightbox(title, items, index) {
+  if (!items.length) return;
   buildLightbox();
-  lightboxItems = group.items;
-  lightboxIndex = Math.max(0, Math.min(index || 0, lightboxItems.length - 1));
-  lightboxEls.title.textContent = group.title || 'Gallery';
+  lightboxItems = items;
+  lightboxIndex = Math.max(0, Math.min(index || 0, items.length - 1));
+  lightboxEls.title.textContent = title || 'Gallery';
   lightboxEls.overlay.hidden = false;
   document.body.classList.add('no-scroll');
   showLightbox();
@@ -737,8 +395,17 @@ function initLightbox() {
   document.addEventListener('click', (e) => {
     const img = e.target.closest('[data-gallery]');
     if (!img) return;
-    openLightbox(img.getAttribute('data-gallery'), parseInt(img.getAttribute('data-index'), 10) || 0);
+
+    const key = img.getAttribute('data-gallery');
+    const group = Array.from(document.querySelectorAll(`[data-gallery="${CSS.escape(key)}"]`));
+    const items = group.map((el) => ({
+      src: el.getAttribute('src'),
+      caption: el.getAttribute('data-caption') || '',
+    }));
+
+    openLightbox(img.getAttribute('data-gallery-title'), items, group.indexOf(img));
   });
+
   document.addEventListener('keydown', (e) => {
     if (!lightboxEls || lightboxEls.overlay.hidden) return;
     if (e.key === 'Escape') closeLightbox();
@@ -748,10 +415,13 @@ function initLightbox() {
 }
 
 // ============================================================
-//  Boot
+//  Boot — every init no-ops on pages without its markup
 // ============================================================
 document.addEventListener('DOMContentLoaded', () => {
-  router();
+  initHomeScatter();
+  initTestimonialCards();
+  initTestimonialRotator();
+  initSignupForm();
+  initCarousel();
   initLightbox();
-  window.addEventListener('hashchange', router);
 });
