@@ -20,6 +20,10 @@
 
   /* Fonts */
   --font-ui: 'W95FA', 'MS Sans Serif', Tahoma, 'Segoe UI', sans-serif;
+
+  /* Cloud icon, inlined so it paints with the stylesheet — see .cloud-icon */
+  --cloud-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 512'%3E%3Cpath d='M537.6 226.6c4.1-10.7 6.4-22.4 6.4-34.6c0-53-43-96-96-96c-19.7 0-38.1 6-53.3 16.2C367 64.2 315.3 32 256 32c-88.4 0-160 71.6-160 160c0 2.7.1 5.4.2 8.1C40.2 219.8 0 273.2 0 336c0 79.5 64.5 144 144 144h368c70.7 0 128-57.3 128-128c0-61.9-44-113.6-102.4-125.4z'/%3E%3C/svg%3E")
+    no-repeat center / contain;
 }
 
 /* ============================================================
@@ -81,12 +85,17 @@ a {
 }
 
 /* Guarded so browsers without mask support hide the icon rather than
-   painting the un-masked box as a solid rectangle. */
+   painting the un-masked box as a solid rectangle.
+
+   The icon is inlined as a data URI rather than referenced from
+   assets/icons/cloud.svg (its source, kept in sync by hand). A separate
+   request for a 350-byte mask means the icon visibly pops in after the
+   page paints; arriving with the render-blocking CSS, it's never late. */
 @supports (mask-image: url('')) or (-webkit-mask-image: url('')) {
   .cloud-icon {
     background-color: currentColor;
-    -webkit-mask: url('../assets/icons/cloud.svg') no-repeat center / contain;
-    mask: url('../assets/icons/cloud.svg') no-repeat center / contain;
+    -webkit-mask: var(--cloud-mask);
+    mask: var(--cloud-mask);
   }
 }
 
