@@ -2,11 +2,27 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title>soft_launch</title>
+        <title>soft_launch | Art x Technology Learning in Toronto</title>
         <meta
             name="description"
-            content="soft_launch is an Art x Technology learning collective in Toronto, running hands-on workshops in Creative Technology, Generative Art, and TouchDesigner for artists and technologists."
+            content="soft_launch is a Toronto education collective running hands-on weekend workshops in TouchDesigner, creative coding, and generative AI for artists and technologists."
         />
+        <link rel="canonical" href="https://softlaunch.net/" />
+
+        <!-- Legacy hash routes (#/previous etc.) from links shared before the
+             move to static pages. Runs before render to avoid a flash. -->
+        <script>
+            (function () {
+                var map = {
+                    '#/upcoming': '/upcoming/',
+                    '#/previous': '/previous/',
+                    '#/about': '/about/',
+                };
+                var to = map[window.location.hash];
+                if (to) window.location.replace(to);
+            })();
+        </script>
+
         <link rel="manifest" crossorigin="anonymous" href="./manifest.json" />
         <link
             rel="apple-touch-icon"
@@ -30,36 +46,93 @@
         <!-- Open Graph / social share -->
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="soft_launch" />
-        <meta property="og:title" content="soft_launch" />
+        <meta property="og:locale" content="en_CA" />
+        <meta
+            property="og:title"
+            content="soft_launch | Art x Technology Learning in Toronto"
+        />
         <meta
             property="og:description"
-            content="Art x Technology Learning, based in Toronto"
+            content="A Toronto education collective running hands-on weekend workshops in TouchDesigner, creative coding, and generative AI."
         />
-        <meta property="og:url" content="https://softlaunch.net" />
+        <meta property="og:url" content="https://softlaunch.net/" />
+        <meta property="og:image" content="https://softlaunch.net/og.png" />
         <meta
-            property="og:image"
-            content="./src/assets/images/opengraph/soft_launch-og.png"
+            property="og:image:alt"
+            content="soft_launch — art x technology learning"
         />
 
         <!-- Twitter -->
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="soft_launch" />
+        <meta
+            name="twitter:title"
+            content="soft_launch | Art x Technology Learning in Toronto"
+        />
         <meta
             name="twitter:description"
-            content="Art x Technology Learning, based in Toronto"
+            content="A Toronto education collective running hands-on weekend workshops in TouchDesigner, creative coding, and generative AI."
         />
+        <meta name="twitter:image" content="https://softlaunch.net/og.png" />
+
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "EducationalOrganization",
+                "name": "soft_launch",
+                "url": "https://softlaunch.net/",
+                "logo": "https://softlaunch.net/og.png",
+                "description": "soft_launch is an education collective working to make new media practices accessible to artists and technologists alike in Toronto and beyond.",
+                "areaServed": "Toronto, Ontario, Canada",
+                "email": "hello@softlaunch.net",
+                "sameAs": ["https://instagram.com/softlaunch_net"]
+            }
+        </script>
+
+        <link rel="preconnect" href="https://fonts.cdnfonts.com" />
+        <link href="https://fonts.cdnfonts.com/css/w95fa" rel="stylesheet" />
         <meta
-            name="twitter:image"
-            content="./src/assets/images/opengraph/soft_launch-og.png"
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover"
         />
-        <link rel="preconnect" href="https://fonts.cdnfonts.com">
-        <link href="https://fonts.cdnfonts.com/css/w95fa" rel="stylesheet">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover" />
         <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
         <link rel="stylesheet" type="text/css" href="./src/css/style.css" />
         <script type="module" src="./src/app.js"></script>
     </head>
     <body>
-        <div id="app" class="app"></div>
+
+        <div id="app" class="app">
+            <div class="page page-home">
+                <section class="home-desktop">
+                    <!-- Decorative workshop photos, scattered and randomized by app.js -->
+                    <div class="home-scatter" aria-hidden="true"></div>
+                    <div class="win home-window">
+                        <div class="win-title">
+                            <span class="win-title-text">soft_launch</span>
+                            <span class="win-title-btn" aria-hidden="true">
+                                <span class="cloud-icon" aria-hidden="true"></span>
+                            </span>
+                        </div>
+                        <div class="win-body home-window-body">
+                            <div class="brand-stack">
+                                <span class="cloud-icon" aria-hidden="true"></span>
+                                <h1 class="brand-title">soft_launch</h1>
+                                <p class="brand-subtitle">
+                                    art x technology learning
+                                </p>
+                            </div>
+                            <div class="home-links">
+                                <a href="/upcoming/" class="home-oval"
+                                    >Upcoming</a
+                                >
+                                <a href="/previous/" class="home-oval"
+                                    >Previous</a
+                                >
+                                <a href="/about/" class="home-oval">About</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
     </body>
 </html>

@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Upcoming Workshops | soft_launch</title>
+        <meta
+            name="description"
+            content="Upcoming soft_launch workshops in Toronto. Join the list to hear first when registration opens for our next TouchDesigner, creative coding, and generative AI intensives."
+        />
+        <link rel="canonical" href="https://softlaunch.net/upcoming/" />
+
+        <link rel="manifest" crossorigin="anonymous" href="../manifest.json" />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="../src/assets/favicon/apple-touch-icon.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="../src/assets/favicon/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="../src/assets/favicon/favicon-16x16.png"
+        />
+        <meta name="theme-color" content="#008080" />
+
+        <!-- Open Graph / social share -->
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="soft_launch" />
+        <meta property="og:locale" content="en_CA" />
+        <meta property="og:title" content="Upcoming Workshops | soft_launch" />
+        <meta
+            property="og:description"
+            content="Hear first when registration opens for our next TouchDesigner, creative coding, and generative AI workshops in Toronto."
+        />
+        <meta property="og:url" content="https://softlaunch.net/upcoming/" />
+        <meta property="og:image" content="https://softlaunch.net/og.png" />
+        <meta
+            property="og:image:alt"
+            content="soft_launch — art x technology learning"
+        />
+
+        <!-- Twitter -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Upcoming Workshops | soft_launch" />
+        <meta
+            name="twitter:description"
+            content="Hear first when registration opens for our next TouchDesigner, creative coding, and generative AI workshops in Toronto."
+        />
+        <meta name="twitter:image" content="https://softlaunch.net/og.png" />
+
+        <link rel="preconnect" href="https://fonts.cdnfonts.com" />
+        <link href="https://fonts.cdnfonts.com/css/w95fa" rel="stylesheet" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover"
+        />
+        <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+        <link rel="stylesheet" type="text/css" href="../src/css/style.css" />
+        <script type="module" src="../src/app.js"></script>
+    </head>
+    <body>
+
+        <div id="app" class="app">
+            <nav class="site-nav">
+                <a href="/" class="nav-brand" aria-label="soft_launch home">
+                    <span class="cloud-icon" aria-hidden="true"></span>
+                    <span class="nav-brand-text">soft_launch</span>
+                </a>
+                <div class="nav-links">
+                    <a
+                        href="/upcoming/"
+                        class="nav-link active"
+                        aria-current="page"
+                        >Upcoming</a
+                    >
+                    <a href="/previous/" class="nav-link">Previous</a>
+                    <a href="/about/" class="nav-link">About</a>
+                </div>
+            </nav>
+
+            <div class="page">
+                <header class="page-header">
+                    <h1 class="page-title">Upcoming</h1>
+                </header>
+
+                <section class="win contact-section">
+                    <div class="win-title">
+                        <h2 class="win-title-text">
+                            Future Workshop Notifications
+                        </h2>
+                        <span class="win-title-btn" aria-hidden="true">
+                            <span class="cloud-icon" aria-hidden="true"></span>
+                        </span>
+                    </div>
+                    <div class="win-body">
+                        <p>
+                            Add your email to be notified when registration
+                            opens for upcoming workshops.
+                        </p>
+                        <form class="signup-form">
+                            <div class="form-row">
+                                <input
+                                    type="text"
+                                    placeholder="Your Name"
+                                    name="name"
+                                    required
+                                />
+                                <input
+                                    type="email"
+                                    placeholder="Email Address"
+                                    name="email"
+                                    required
+                                />
+                            </div>
+                            <button type="submit" class="signup-button">
+                                Notify Me
+                            </button>
+                        </form>
+                        <p class="contact-info">
+                            Questions? Contact us at
+                            <a href="mailto:hello@softlaunch.net"
+                                >hello@softlaunch.net</a
+                            >
+                        </p>
+                    </div>
+                </section>
+
+                <section class="win testimonials-section">
+                    <div class="win-title">
+                        <h2 class="win-title-text">Testimonials</h2>
+                        <span class="win-title-btn" aria-hidden="true">
+                            <span class="cloud-icon" aria-hidden="true"></span>
+                        </span>
+                    </div>
+                    <div class="win-body">
+                        <!-- Quote text is swapped on a timer by app.js -->
+                        <blockquote class="testimonial-rotator">
+                            <p class="testimonial-quote"></p>
+                        </blockquote>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </body>
+</html>

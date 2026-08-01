@@ -2,8 +2,8 @@
   "name": "softlaunch_net",
   "version": "1.0.0",
   "scripts": {
-    "start": "rm -rf .parcel-cache && parcel ./*.html",
-    "predeploy": "rm -rf dist && parcel build ./*.html --public-url https://softlaunch.net && cp CNAME ./dist",
+    "start": "rm -rf .parcel-cache && parcel ./index.html ./upcoming/index.html ./previous/index.html ./about/index.html",
+    "predeploy": "rm -rf dist && parcel build ./index.html ./upcoming/index.html ./previous/index.html ./about/index.html --public-url https://softlaunch.net && cp CNAME robots.txt sitemap.xml ./dist && cp src/assets/images/opengraph/soft_launch-og.png ./dist/og.png",
     "deploy": "gh-pages -d dist"
   },
   "author": "",
@@ -15,6 +15,7 @@
   },
   "devDependencies": {
     "@parcel/packager-raw-url": "^2.15.4",
+    "@parcel/transformer-jsonld": "^2.15.4",
     "@parcel/transformer-webmanifest": "^2.15.4"
   }
 }

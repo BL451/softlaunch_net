@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>About &amp; Facilitators | soft_launch</title>
+        <meta
+            name="description"
+            content="soft_launch is a Toronto education collective making new media practice accessible. Meet facilitators Tara Rose Morris and Benjamin Lappalainen, and our partners InterAccess, UKAI Projects, and New Systems."
+        />
+        <link rel="canonical" href="https://softlaunch.net/about/" />
+
+        <link rel="manifest" crossorigin="anonymous" href="../manifest.json" />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="../src/assets/favicon/apple-touch-icon.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="../src/assets/favicon/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="../src/assets/favicon/favicon-16x16.png"
+        />
+        <meta name="theme-color" content="#008080" />
+
+        <!-- Open Graph / social share -->
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="soft_launch" />
+        <meta property="og:locale" content="en_CA" />
+        <meta
+            property="og:title"
+            content="About &amp; Facilitators | soft_launch"
+        />
+        <meta
+            property="og:description"
+            content="An education collective making new media practice accessible to artists and technologists in Toronto and beyond."
+        />
+        <meta property="og:url" content="https://softlaunch.net/about/" />
+        <meta property="og:image" content="https://softlaunch.net/og.png" />
+        <meta
+            property="og:image:alt"
+            content="soft_launch — art x technology learning"
+        />
+
+        <!-- Twitter -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+            name="twitter:title"
+            content="About &amp; Facilitators | soft_launch"
+        />
+        <meta
+            name="twitter:description"
+            content="An education collective making new media practice accessible to artists and technologists in Toronto and beyond."
+        />
+        <meta name="twitter:image" content="https://softlaunch.net/og.png" />
+
+        <link rel="preconnect" href="https://fonts.cdnfonts.com" />
+        <link href="https://fonts.cdnfonts.com/css/w95fa" rel="stylesheet" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover"
+        />
+        <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+        <link rel="stylesheet" type="text/css" href="../src/css/style.css" />
+        <script type="module" src="../src/app.js"></script>
+    </head>
+    <body>
+
+        <div id="app" class="app">
+            <nav class="site-nav">
+                <a href="/" class="nav-brand" aria-label="soft_launch home">
+                    <span class="cloud-icon" aria-hidden="true"></span>
+                    <span class="nav-brand-text">soft_launch</span>
+                </a>
+                <div class="nav-links">
+                    <a href="/upcoming/" class="nav-link">Upcoming</a>
+                    <a href="/previous/" class="nav-link">Previous</a>
+                    <a href="/about/" class="nav-link active" aria-current="page"
+                        >About</a
+                    >
+                </div>
+            </nav>
+
+            <div class="page">
+                <header class="page-header">
+                    <h1 class="page-title">About</h1>
+                </header>
+
+                <section class="win about-section">
+                    <div class="win-title">
+                        <h2 class="win-title-text">About</h2>
+                        <span class="win-title-btn" aria-hidden="true">
+                            <span class="cloud-icon" aria-hidden="true"></span>
+                        </span>
+                    </div>
+                    <div class="win-body">
+                        <p>
+                            soft_launch is an education collective working to
+                            make new media practices accessible to artists and
+                            technologists alike in Toronto and beyond. Our first
+                            series of weekend intensives built foundations in
+                            TouchDesigner, Generative AI, and Creative Code,
+                            which we will continue in future sessions. Check our
+                            <a
+                                href="https://instagram.com/softlaunch_net"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                >Instagram</a
+                            >
+                            or <a href="/upcoming/">upcoming workshops</a> for
+                            what's next.
+                        </p>
+                    </div>
+                </section>
+
+                <section class="win">
+                    <div class="win-title">
+                        <h2 class="win-title-text">Facilitators</h2>
+                        <span class="win-title-btn" aria-hidden="true">
+                            <span class="cloud-icon" aria-hidden="true"></span>
+                        </span>
+                    </div>
+                    <div class="win-body">
+                        <div class="team-grid">
+                            <div class="team-member">
+                                <img
+                                    src="../src/assets/images/leads/tara.webp"
+                                    alt="Tara Rose Morris"
+                                    class="team-photo"
+                                />
+                                <div class="team-info">
+                                    <h3>
+                                        <a
+                                            href="https://www.taramoves.com/"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            >Tara Rose Morris</a
+                                        >
+                                    </h3>
+                                    <p>
+                                        Artist and creative technologist using
+                                        technology for live performances and
+                                        immersive installations exploring art,
+                                        code, and liminal ontologies of
+                                        embodiment.
+                                    </p>
+                                    <ul class="facilitator-links">
+                                        <li>
+                                            <a
+                                                href="https://www.taramoves.com"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >www.taramoves.com</a
+                                            >
+                                        </li>
+                                        <li>
+                                            <a
+                                                href="https://instagram.com/taramoves"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >instagram.com/taramoves</a
+                                            >
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="team-member">
+                                <img
+                                    src="../src/assets/images/leads/benjamin.webp"
+                                    alt="Benjamin Lappalainen"
+                                    class="team-photo"
+                                />
+                                <div class="team-info">
+                                    <h3>
+                                        <a
+                                            href="https://blap64.com/"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            >Benjamin Lappalainen</a
+                                        >
+                                    </h3>
+                                    <p>
+                                        Creative technologist, artist, and
+                                        educator making interactive
+                                        installations, kinetic sculpture, and
+                                        creative code that reveal how perceptive
+                                        and generative technologies actually
+                                        work.
+                                    </p>
+                                    <ul class="facilitator-links">
+                                        <li>
+                                            <a
+                                                href="https://www.blap64.com"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >www.blap64.com</a
+                                            >
+                                        </li>
+                                        <li>
+                                            <a
+                                                href="https://instagram.com/blapcode"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >instagram.com/blapcode</a
+                                            >
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="win">
+                    <div class="win-title">
+                        <h2 class="win-title-text">Facilitator Work</h2>
+                        <span class="win-title-btn" aria-hidden="true">
+                            <span class="cloud-icon" aria-hidden="true"></span>
+                        </span>
+                    </div>
+                    <div class="win-body">
+                        <div class="carousel-container">
+                            <div class="carousel-track">
+                                <div class="carousel-item active">
+                                    <img
+                                        src="../src/assets/images/gallery/Tara_Art_2.webp"
+                                        alt="Tara's FLOWERS LED wall installation, PHNTM Labs (2023)"
+                                        class="carousel-image"
+                                        data-gallery="facilitator"
+                                        data-gallery-title="Facilitator Work"
+                                        data-caption="Tara's FLOWERS LED wall installation, PHNTM Labs (2023) — Photo: Tara Rose Morris"
+                                    />
+                                    <p class="carousel-caption">
+                                        Tara's FLOWERS LED wall installation,
+                                        PHNTM Labs (2023)
+                                    </p>
+                                    <p class="carousel-credit">
+                                        Photo: Tara Rose Morris
+                                    </p>
+                                </div>
+                                <div class="carousel-item">
+                                    <img
+                                        src="../src/assets/images/gallery/Sketching Flock.webp"
+                                        alt="Benjamin's SKETCHING FLOCK, InterAccess OpenHDMI (2024)"
+                                        class="carousel-image"
+                                        data-gallery="facilitator"
+                                        data-gallery-title="Facilitator Work"
+                                        data-caption="Benjamin's SKETCHING FLOCK, InterAccess OpenHDMI (2024) — Photo: Benjamin Lappalainen"
+                                    />
+                                    <p class="carousel-caption">
+                                        Benjamin's SKETCHING FLOCK, InterAccess
+                                        OpenHDMI (2024)
+                                    </p>
+                                    <p class="carousel-credit">
+                                        Photo: Benjamin Lappalainen
+                                    </p>
+                                </div>
+                                <div class="carousel-item">
+                                    <img
+                                        src="../src/assets/images/gallery/Tara_Art_1.webp"
+                                        alt="Tara's MITHAI performance, InterAccess P2P (2024)"
+                                        class="carousel-image"
+                                        data-gallery="facilitator"
+                                        data-gallery-title="Facilitator Work"
+                                        data-caption="Tara's MITHAI performance, InterAccess P2P (2024) — Photo: Tara Rose Morris"
+                                    />
+                                    <p class="carousel-caption">
+                                        Tara's MITHAI performance, InterAccess
+                                        P2P (2024)
+                                    </p>
+                                    <p class="carousel-credit">
+                                        Photo: Tara Rose Morris
+                                    </p>
+                                </div>
+                                <div class="carousel-item">
+                                    <img
+                                        src="../src/assets/images/gallery/lw13_1-15.webp"
+                                        alt="Benjamin's live audio-reactive visuals, Long Winter 13.1 (2024)"
+                                        class="carousel-image"
+                                        data-gallery="facilitator"
+                                        data-gallery-title="Facilitator Work"
+                                        data-caption="Benjamin's live audio-reactive visuals, Long Winter 13.1 (2024) — Photo: Benjamin Lappalainen"
+                                    />
+                                    <p class="carousel-caption">
+                                        Benjamin's live audio-reactive visuals,
+                                        Long Winter 13.1 (2024)
+                                    </p>
+                                    <p class="carousel-credit">
+                                        Photo: Benjamin Lappalainen
+                                    </p>
+                                </div>
+                                <div class="carousel-item">
+                                    <img
+                                        src="../src/assets/images/gallery/01-projecting-future-workshop.webp"
+                                        alt="Projecting the Future workshop (2023)"
+                                        class="carousel-image"
+                                        data-gallery="facilitator"
+                                        data-gallery-title="Facilitator Work"
+                                        data-caption="Projecting the Future workshop (2023) — Photo: Simon Rojas"
+                                    />
+                                    <p class="carousel-caption">
+                                        Projecting the Future workshop (2023)
+                                    </p>
+                                    <p class="carousel-credit">
+                                        Photo: Simon Rojas
+                                    </p>
+                                </div>
+                                <div class="carousel-item">
+                                    <img
+                                        src="../src/assets/images/gallery/04-biosonification-moca.webp"
+                                        alt="BioSonification installation, MOCA (2019)"
+                                        class="carousel-image"
+                                        data-gallery="facilitator"
+                                        data-gallery-title="Facilitator Work"
+                                        data-caption="BioSonification installation, MOCA (2019) — Photo: Tosca Terán"
+                                    />
+                                    <p class="carousel-caption">
+                                        BioSonification installation, MOCA
+                                        (2019)
+                                    </p>
+                                    <p class="carousel-credit">
+                                        Photo: Tosca Terán
+                                    </p>
+                                </div>
+                                <div class="carousel-item">
+                                    <img
+                                        src="../src/assets/images/gallery/05-open-studio.webp"
+                                        alt="Open Studio community showcase"
+                                        class="carousel-image"
+                                        data-gallery="facilitator"
+                                        data-gallery-title="Facilitator Work"
+                                        data-caption="Open Studio community showcase — Photo: Courtesy of InterAccess"
+                                    />
+                                    <p class="carousel-caption">
+                                        Open Studio community showcase
+                                    </p>
+                                    <p class="carousel-credit">
+                                        Photo: Courtesy of InterAccess
+                                    </p>
+                                </div>
+                                <div class="carousel-item">
+                                    <img
+                                        src="../src/assets/images/gallery/dsc00497.webp"
+                                        alt="PROGRAM09: MEDIAPIPE, New Stadium (2025)"
+                                        class="carousel-image"
+                                        data-gallery="facilitator"
+                                        data-gallery-title="Facilitator Work"
+                                        data-caption="PROGRAM09: MEDIAPIPE, New Stadium (2025) — Photo: PROGRAM media team"
+                                    />
+                                    <p class="carousel-caption">
+                                        PROGRAM09: MEDIAPIPE, New Stadium (2025)
+                                    </p>
+                                    <p class="carousel-credit">
+                                        Photo: PROGRAM media team
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="carousel-controls">
+                                <div class="carousel-indicators">
+                                    <span
+                                        class="indicator active"
+                                        data-slide="0"
+                                    ></span>
+                                    <span
+                                        class="indicator"
+                                        data-slide="1"
+                                    ></span>
+                                    <span
+                                        class="indicator"
+                                        data-slide="2"
+                                    ></span>
+                                    <span
+                                        class="indicator"
+                                        data-slide="3"
+                                    ></span>
+                                    <span
+                                        class="indicator"
+                                        data-slide="4"
+                                    ></span>
+                                    <span
+                                        class="indicator"
+                                        data-slide="5"
+                                    ></span>
+                                    <span
+                                        class="indicator"
+                                        data-slide="6"
+                                    ></span>
+                                    <span
+                                        class="indicator"
+                                        data-slide="7"
+                                    ></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="win">
+                    <div class="win-title">
+                        <h2 class="win-title-text">Partners</h2>
+                        <span class="win-title-btn" aria-hidden="true">
+                            <span class="cloud-icon" aria-hidden="true"></span>
+                        </span>
+                    </div>
+                    <div class="win-body">
+                        <div class="partners-grid">
+                            <div class="partner-item">
+                                <img
+                                    src="../src/assets/images/partners/newsystems.webp"
+                                    alt="New Systems"
+                                    class="partner-logo"
+                                />
+                                <h3>
+                                    <a
+                                        href="https://newsystems.ca/"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        >New Systems</a
+                                    >
+                                </h3>
+                            </div>
+                            <div class="partner-item">
+                                <img
+                                    src="../src/assets/images/partners/interaccess.webp"
+                                    alt="InterAccess"
+                                    class="partner-logo"
+                                />
+                                <h3>
+                                    <a
+                                        href="https://interaccess.org"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        >InterAccess</a
+                                    >
+                                </h3>
+                            </div>
+                            <div class="partner-item">
+                                <img
+                                    src="../src/assets/images/partners/ukaiprojects.webp"
+                                    alt="UKAI Projects"
+                                    class="partner-logo"
+                                />
+                                <h3>
+                                    <a
+                                        href="https://ukaiprojects.com"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        >UKAI Projects</a
+                                    >
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </body>
+</html>
