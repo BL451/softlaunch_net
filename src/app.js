@@ -66,9 +66,12 @@ const NAV = [
   { path: '/about', label: 'About' },
 ];
 
-// Past workshops shown on the Previous page
+// Past workshops shown on the Previous page. Kept in chronological order —
+// the array index is the lightbox gallery key — and rendered newest-first
+// by `when`, which also slots in the Doors Open showcase.
 const WORKSHOPS = [
   {
+    when: '2026-03',
     date: 'March 2026',
     title: 'Internet Canvas',
     subtitle: 'Creative Coding with the Browser',
@@ -77,6 +80,7 @@ const WORKSHOPS = [
     images: [ic1, ic2, ic3, ic4],
   },
   {
+    when: '2026-04',
     date: 'April 2026',
     title: 'Reactive Space',
     subtitle: 'Interactive Installations with TouchDesigner',
@@ -85,12 +89,22 @@ const WORKSHOPS = [
     images: [rs1, rs2, rs3, rs4, rs5, rs6, rs7, rs8],
   },
   {
+    when: '2026-05-a',
     date: 'May 2026',
     title: 'Synthetic Worlds',
     subtitle: 'Making Images & Video with Generative AI',
     summary:
       'Students demystified generative AI for image and video — learning technical workflows, worldbuilding prompt techniques, critical skills for identifying AI-generated content and the ethics of AI art-making, to create their own narrative worldbuilding collection.',
     images: [sw1, sw2, sw3, sw4],
+  },
+  {
+    when: '2026-07',
+    date: 'July 2026',
+    title: 'TouchDesigner 101',
+    subtitle: 'A Weekend Introduction to TouchDesigner',
+    summary:
+      'Students got a hands-on introduction to TouchDesigner — the node-based software behind interactive installations and real-time visuals — building projects from the ground up, working with CHOPs, TOPs, POPs and COMPs, making visuals audio-reactive and driving them with body tracking via MediaPipe, and leaving with a working prototype of an interactive installation.',
+    images: [],
   },
 ];
 
@@ -291,16 +305,6 @@ function renderHome() {
 }
 
 function renderUpcoming() {
-  const eventBody = `
-    <p class="previous-date">Sat July 25 &amp; Sun July 26 · 11 AM – 3 PM</p>
-    <h3 class="previous-subtitle">New Stadium — 83 Walnut Ave, Toronto</h3>
-    <p class="previous-summary">A hands-on weekend introduction to TouchDesigner — the node-based software behind interactive installations and real-time visuals. Build projects from the ground up, work with CHOPs, TOPs, POPs and COMPs, make visuals audio-reactive, and drive them with body tracking via MediaPipe. You'll leave with a working prototype of an interactive installation.</p>
-    <p class="event-fee">$250 · Spots limited · Bring your own laptop (install TouchDesigner in advance)</p>
-    <div class="event-cta">
-      <a class="signup-button" href="https://buytickets.at/softlaunch/2299646" target="_blank" rel="noopener noreferrer">Get Tickets</a>
-    </div>
-  `;
-
   const body = `
     <p>Add your email to be notified when registration opens for upcoming workshops.</p>
     <form class="signup-form">
@@ -318,8 +322,6 @@ function renderUpcoming() {
       <h1 class="page-title">Upcoming</h1>
     </header>
 
-    ${windowBox('TouchDesigner 101', eventBody)}
-
     ${windowBox('Future Workshop Notifications', body, 'contact-section')}
 
     ${rotatingTestimonial()}
@@ -327,28 +329,34 @@ function renderUpcoming() {
 }
 
 function renderPrevious() {
-  const workshopWindows = WORKSHOPS.map((w, i) =>
-    windowBox(
+  const workshopCards = WORKSHOPS.map((w, i) => ({
+    when: w.when,
+    html: windowBox(
       w.title,
       `
         <p class="previous-date">${w.date}</p>
         <h3 class="previous-subtitle">${w.subtitle}</h3>
         <p class="previous-summary">${w.summary}</p>
-        <div class="workshop-gallery">
+        ${
+          w.images.length
+            ? `<div class="workshop-gallery">
           ${w.images
             .map(
               (src, idx) =>
                 `<img src="${src}" alt="${w.title} workshop" class="workshop-photo" loading="lazy" data-gallery="workshop-${i}" data-index="${idx}">`
             )
             .join('')}
-        </div>
+        </div>`
+            : ''
+        }
       `,
       'previous-card'
-    )
-  ).join('');
+    ),
+  }));
 
   const doorsBody = `
-    <p>Students of the pilot program had the opportunity to share their work during Doors Open TO at InterAccess this past spring.</p>
+    <p class="previous-date">May 2026</p>
+    <p class="previous-summary">Students of the pilot program had the opportunity to share their work during Doors Open TO at InterAccess.</p>
     <div class="doors-photos">
       ${DOORS_PHOTOS.map(
         (src, i) =>
@@ -357,14 +365,20 @@ function renderPrevious() {
     </div>
   `;
 
+  // Doors Open sits in late May, after the Synthetic Worlds workshop.
+  const doorsCard = { when: '2026-05-b', html: windowBox('Doors Open Toronto', doorsBody) };
+
+  const cards = [...workshopCards, doorsCard]
+    .sort((a, b) => b.when.localeCompare(a.when))
+    .map((c) => c.html)
+    .join('');
+
   return `
     <header class="page-header">
       <h1 class="page-title">Previous</h1>
     </header>
 
-    <div class="previous-grid">${workshopWindows}</div>
-
-    ${windowBox('Doors Open Toronto', doorsBody)}
+    <div class="previous-grid">${cards}</div>
 
     ${testimonialsSection()}
   `;
